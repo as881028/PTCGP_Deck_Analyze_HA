@@ -54,6 +54,17 @@ CONFIG = {
 # OpenAI API key – set environment variable OPENAI_API_KEY=<your key>
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+addon_options = os.getenv("HASSIO_ADDON_OPTIONS")
+if addon_options:
+    try:
+        options = json.loads(addon_options)
+        if 'openai_api_key' in options:
+            openai_api_key = options['openai_api_key']
+    except Exception as e:
+        print("❌ 無法解析 HASSIO_ADDON_OPTIONS:", e)
+
+os.environ['OPENAI_API_KEY'] = openai_api_key
+
 logging.basicConfig(
     level=logging.DEBUG if CONFIG['DEBUG'] else logging.INFO,
     format='[%(asctime)s] %(levelname)s: %(message)s'
