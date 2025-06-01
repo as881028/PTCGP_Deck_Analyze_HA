@@ -1,0 +1,13 @@
+{
+    "name": "Pokemon TCG Pocket Deck Analyzer",
+    "version": "1.0",
+    "slug": "pokemon_addon",
+    "description": "分析 Pokemon TCG Pocket 牌組勝率的 HA Add-on",
+    "startup": "once",
+    "boot": "manual",
+    "options": {},
+    "schema": {
+        "openai_api_key": "str"
+      },
+    "image": "local/pokemon-addon-{arch}"
+  }
