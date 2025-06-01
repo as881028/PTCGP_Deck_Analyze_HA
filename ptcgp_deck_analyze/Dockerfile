@@ -22,4 +22,4 @@ COPY . /app
 WORKDIR /app
 
 # 預設啟動指令（如果有 python 腳本）
-ENTRYPOINT ["echo", "🟡 add-on 啟動了！"]
+ENTRYPOINT ["python", "/app/scraper.py"]
