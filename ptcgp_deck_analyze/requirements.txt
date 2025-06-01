@@ -1,5 +1,5 @@
-pandas
-requests
-openai
-beautifulsoup4
-python-dotenv
+pandas==2.1.4
+requests==2.31.0
+openai==1.82.1
+beautifulsoup4==4.12.2
+python-dotenv==1.1.0
