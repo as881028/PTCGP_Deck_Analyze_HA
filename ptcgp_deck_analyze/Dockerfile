@@ -8,8 +8,9 @@ RUN pip install -r /app/requirements.txt
 
 # 複製你的程式
 COPY run.sh /app/run.sh
-COPY your_script.py /app/your_script.py
+COPY scraper.py /app/scraper.py
 WORKDIR /app
+
 
 # 啟動命令
 CMD [ "bash", "/app/run.sh" ]
