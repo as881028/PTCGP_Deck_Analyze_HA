@@ -1,20 +1,15 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base-python:3.11
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.18
 FROM ${BUILD_FROM}
 
-# 安裝必要套件 (如有其他需求可加)
-RUN apk add --no-cache bash curl
+# 安裝 Python 和依賴
+RUN apk add --no-cache python3 py3-pip
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
 
-# 複製檔案
-COPY run.sh /run.sh
-COPY my_script.py /my_script.py
-COPY requirements.txt /requirements.txt
-COPY system_prompt.txt /system_prompt.txt
+# 複製你的程式
+COPY run.sh /app/run.sh
+COPY your_script.py /app/your_script.py
+WORKDIR /app
 
-# 安裝 Python 套件
-RUN pip install --no-cache-dir -r /requirements.txt
-
-# 給執行權限
-RUN chmod a+x /run.sh
-
-# 啟動
-CMD [ "/run.sh" ]
+# 啟動命令
+CMD [ "bash", "/app/run.sh" ]
