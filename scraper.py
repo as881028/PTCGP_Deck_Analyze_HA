@@ -17,7 +17,7 @@ CONFIG = {
     'CACHE_DURATION': 3600,  # Cache duration in seconds (1 hour)
     'USE_CACHE': False,     # Whether to use cache
     'DEBUG': True,         # Whether to show detailed logs
-    'MIN_MATCH_COUNT': 30   # Minimum number of matches for a matchup to be considered
+    'MIN_MATCH_COUNT': 5    # Minimum number of matches for a matchup to be considered
 }
 
 def debug_print(*args, **kwargs):
@@ -148,7 +148,7 @@ def save_deck_cache(df):
         # Save new cache
         cache_data = {
             'timestamp': datetime.now().isoformat(),
-            'data': df.to_dict('records')
+            'data': df.to_dict('records') if hasattr(df, 'to_dict') else df
         }
         with open(CONFIG['DECK_CACHE_FILE'], 'w', encoding='utf-8') as f:
             json.dump(cache_data, f, ensure_ascii=False, indent=2)
@@ -162,6 +162,53 @@ def save_deck_cache(df):
                         dst.write(src.read())
             except Exception as e:
                 print(f"Warning: Could not restore deck cache from backup: {e}")
+
+def load_matchup_cache():
+    """載入對戰數據緩存"""
+    cache_file = 'matchup_cache.json'
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+                # 檢查緩存是否過期
+                cache_time = datetime.fromisoformat(cache_data['timestamp'])
+                if datetime.now() - cache_time < timedelta(seconds=CONFIG['CACHE_DURATION']):
+                    return cache_data['data']
+        except Exception as e:
+            print(f"Error loading matchup cache: {e}")
+    return {}
+
+def save_matchup_cache(cache_data):
+    """保存對戰數據緩存"""
+    cache_file = 'matchup_cache.json'
+    try:
+        # 創建備份
+        if os.path.exists(cache_file):
+            backup_file = f"{cache_file}.bak"
+            try:
+                with open(cache_file, 'r', encoding='utf-8') as src:
+                    with open(backup_file, 'w', encoding='utf-8') as dst:
+                        dst.write(src.read())
+            except Exception as e:
+                print(f"Warning: Could not create matchup cache backup: {e}")
+        
+        # 保存新緩存
+        cache = {
+            'timestamp': datetime.now().isoformat(),
+            'data': cache_data
+        }
+        with open(cache_file, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error saving matchup cache: {e}")
+        # 如果保存失敗，嘗試從備份恢復
+        if os.path.exists(f"{cache_file}.bak"):
+            try:
+                with open(f"{cache_file}.bak", 'r', encoding='utf-8') as src:
+                    with open(cache_file, 'w', encoding='utf-8') as dst:
+                        dst.write(src.read())
+            except Exception as e:
+                print(f"Warning: Could not restore matchup cache from backup: {e}")
 
 def test_matchup_data_structure(url):
     """Test function to verify the matchup data structure"""
@@ -200,10 +247,12 @@ def test_matchup_data_structure(url):
 def get_deck_matchups(deck_name, deck_cache, use_cache=True, top_decks=None):
     debug_print(f"\nProcessing deck: {deck_name}")
     
-    # Check cache first if enabled
-    if use_cache and deck_cache and deck_name in deck_cache:
-        debug_print(f"Found in cache: {deck_cache[deck_name]}")
-        return deck_cache[deck_name]
+    # 檢查緩存
+    if use_cache:
+        matchup_cache = load_matchup_cache()
+        if deck_name in matchup_cache:
+            debug_print(f"Found in matchup cache: {deck_name}")
+            return matchup_cache[deck_name]
     
     try:
         # First, get the deck list page to find the matchup URL
@@ -265,45 +314,39 @@ def get_deck_matchups(deck_name, deck_cache, use_cache=True, top_decks=None):
                     continue
                 
                 # Get opponent name from the first column
-                opponent_cell = cols[0]
-                images = opponent_cell.find_all('img')
-                if not images:
-                    continue
-                    
-                # Get the Pokemon names from the image sources
-                pokemon_names = []
-                for img in images:
-                    src = img.get('src', '')
-                    match = re.search(r'/pokemon/gen\d+/([^/]+)\.png', src)
-                    if match:
-                        pokemon_name = match.group(1)
-                        pokemon_name = pokemon_name.replace('-', ' ').title()
-                        pokemon_names.append(pokemon_name)
-                
-                if not pokemon_names:
-                    continue
-                    
-                opponent = ' '.join(pokemon_names)
+                opponent_cell = cols[1]
+                opponent = opponent_cell.get_text(strip=True)
                 debug_print(f"\nProcessing opponent: {opponent}")
                 
                 # Get score and matches
-                score = cols[1].get_text(strip=True)    # W-L-T record
-                matches = cols[2].get_text(strip=True)  # Total matches
-                debug_print(f"Matches: {matches}")
+                matches_text = cols[2].get_text(strip=True)  # Total matches
+                score_text = cols[3].get_text(strip=True)    # W-L-T record
+                debug_print(f"Raw score: {score_text}")
+                debug_print(f"Raw matches: {matches_text}")
                 
                 try:
                     # 檢查場次是否為數字
-                    if not matches.isdigit():
-                        debug_print(f"Invalid match count: {matches}")
+                    if not matches_text.isdigit():
+                        debug_print(f"Invalid match count: {matches_text}")
                         continue
                         
                     # 解析總場次
-                    total_matches = int(matches)
+                    total_matches = int(matches_text)
                     
-                    # 如果場次少於20，跳過
-                    if total_matches < 20:
-                        debug_print(f"Skipping matchup with less than 20 matches: {total_matches}")
+                    # 如果場次少於最小場次，跳過
+                    if total_matches < CONFIG['MIN_MATCH_COUNT']:
+                        debug_print(f"Skipping matchup with less than {CONFIG['MIN_MATCH_COUNT']} matches: {total_matches}")
                         continue
+                    
+                    # 解析勝率
+                    # 格式可能是 "W-L-T" 或純數字百分比
+                    if '-' in score_text:
+                        # 處理 W-L-T 格式
+                        wins, losses, ties = map(int, score_text.split('-'))
+                        win_rate = (wins / total_matches) * 100
+                    else:
+                        # 處理純數字百分比
+                        win_rate = float(score_text.replace('%', ''))
                     
                     # Convert opponent name to Chinese
                     name_cache = load_name_cache()
@@ -312,13 +355,13 @@ def get_deck_matchups(deck_name, deck_cache, use_cache=True, top_decks=None):
                     matchup_data = {
                         'opponent': opponent,
                         'opponent_chinese': opponent_chinese,
-                        'win_rate': score,
-                        'raw_score': score,
+                        'win_rate': win_rate,
+                        'raw_score': score_text,
                         'total_matches': total_matches
                     }
                     
                     all_matchups.append(matchup_data)
-                    debug_print(f"Added matchup: {opponent_chinese} - {total_matches} matches")
+                    debug_print(f"Added matchup: {opponent_chinese} - {total_matches} matches, {win_rate:.1f}% win rate")
                 except ValueError as e:
                     debug_print(f"Error parsing data: {e}")
                     continue
@@ -333,12 +376,11 @@ def get_deck_matchups(deck_name, deck_cache, use_cache=True, top_decks=None):
             # 只按場次排序
             all_matchups.sort(key=lambda x: x['total_matches'], reverse=True)
             
-            # Save to cache if enabled
+            # 保存到緩存
             if use_cache:
-                if deck_cache is None:
-                    deck_cache = {}
-                deck_cache[deck_name] = all_matchups
-                save_deck_cache(deck_cache)
+                matchup_cache = load_matchup_cache()
+                matchup_cache[deck_name] = all_matchups
+                save_matchup_cache(matchup_cache)
             
             return all_matchups
         else:
@@ -353,35 +395,91 @@ def get_deck_matchups(deck_name, deck_cache, use_cache=True, top_decks=None):
     return None
 
 def analyze_top_deck_matchups(df):
-    """Analyze matchups between top decks"""
-    print("\nTop Deck Matchup Analysis:")
-    print("=" * 80)
-    
-    # Get list of top deck names
+    """分析TOP DECK之間的對戰數據"""
+    # 獲取TOP DECK列表
     top_decks = df['Deck Name'].tolist()
-    debug_print(f"Top decks: {top_decks}")
+    debug_print("\nTop decks list:")
+    for deck in top_decks:
+        debug_print(f"- {deck}")
     
-    # Process each deck's matchups
-    for _, row in df.iterrows():
-        deck_name = row['Deck Name']
-        chinese_name = row['Chinese Name']
-        matchups = row['Matchup Data']
-        
-        print(f"\n{chinese_name} ({deck_name})")
-        print("-" * 80)
+    # 載入名稱緩存
+    name_cache = load_name_cache()
+    
+    # 創建對戰矩陣
+    matchup_matrix = {}
+    for deck in top_decks:
+        matchup_matrix[deck] = {}
+        for opponent in top_decks:
+            if deck != opponent:
+                matchup_matrix[deck][opponent] = {
+                    'matches': 0,
+                    'wins': 0,
+                    'win_rate': 0.0
+                }
+    
+    # 處理每個TOP DECK的對戰數據
+    for deck in top_decks:
+        print(f"\n處理 {deck} 的對戰數據...")
+        matchups = get_deck_matchups(deck, None, use_cache=True, top_decks=top_decks)
         
         if matchups:
-            # Sort matchups by total matches
-            matchups.sort(key=lambda x: x['total_matches'], reverse=True)
-            
-            # Get the top matchup (highest match count)
-            top_matchup = matchups[0]
-            print(f"對戰 {top_matchup['opponent_chinese']}:")
-            print(f"  場次: {top_matchup['total_matches']}場")
-            print(f"  勝率: {top_matchup['win_rate']}")
+            debug_print(f"\nFound {len(matchups)} matchups for {deck}")
+            # 更新對戰矩陣
+            for matchup in matchups:
+                opponent = matchup['opponent']
+                debug_print(f"\nChecking matchup: {deck} vs {opponent}")
+                debug_print(f"Matchup data: {matchup}")
+                # 檢查對手是否在TOP DECK列表中
+                if opponent in top_decks:
+                    debug_print(f"Found matchup for {deck} vs {opponent}")
+                    matchup_matrix[deck][opponent] = {
+                        'matches': matchup['total_matches'],
+                        'wins': int(matchup['total_matches'] * matchup['win_rate'] / 100),
+                        'win_rate': matchup['win_rate']
+                    }
+                    debug_print(f"Updated matrix: {deck} vs {opponent} - {matchup['total_matches']} matches, {matchup['win_rate']:.1f}% win rate")
+                else:
+                    debug_print(f"Opponent {opponent} not in top decks list")
         else:
-            print("沒有對戰數據")
+            debug_print(f"No matchups found for {deck}")
+    
+    # 獲取所有牌組的中文名稱
+    chinese_names = {deck: get_pokemon_chinese_name(deck, name_cache) for deck in top_decks}
+    
+    # 打印對戰矩陣
+    print("\n=== TOP DECK 對戰矩陣 ===")
+    
+    # 設置固定寬度
+    NAME_WIDTH = 15
+    NUM_WIDTH = 8
+    
+    def print_matrix_header():
+        print("對手".ljust(NAME_WIDTH), end="")
+        for deck in top_decks:
+            print(f"{chinese_names[deck][:NAME_WIDTH-2]}".ljust(NAME_WIDTH), end="")
         print()
+    
+    def print_matrix_row(deck, get_value):
+        print(f"{chinese_names[deck][:NAME_WIDTH-2]}".ljust(NAME_WIDTH), end="")
+        for opponent in top_decks:
+            if deck == opponent:
+                print("-".center(NAME_WIDTH), end="")
+            else:
+                value = get_value(matchup_matrix[deck][opponent])
+                print(f"{value}".center(NAME_WIDTH), end="")
+        print()
+    
+    print("\n對戰次數矩陣:")
+    print_matrix_header()
+    for deck in top_decks:
+        print_matrix_row(deck, lambda x: x['matches'])
+    
+    print("\n勝率矩陣:")
+    print_matrix_header()
+    for deck in top_decks:
+        print_matrix_row(deck, lambda x: f"{x['win_rate']:.1f}%")
+    
+    return matchup_matrix
 
 def scrape_limitless_decks(use_cache=None):
     # Use the global config if use_cache is not specified
@@ -488,54 +586,20 @@ def scrape_limitless_decks(use_cache=None):
         return None
 
 if __name__ == "__main__":
-    # You can set USE_CACHE to False to force fresh data
-    CONFIG['USE_CACHE'] = False  # Set to False to force fresh data
-    CONFIG['DEBUG'] = True     # Set to True to show detailed logs
+    # 設置配置
+    CONFIG['USE_CACHE'] = False  # 強制重新獲取數據
+    CONFIG['DEBUG'] = True  # 開啟調試輸出
+    
+    # 獲取數據
     df = scrape_limitless_decks()
-    if df is not None:
-        print(f"\nTop decks by Win % (Count > {CONFIG['MIN_COUNT']}, Win % > {CONFIG['MIN_WIN_RATE']}%):")
-        # Format the output to show all numerical values clearly
-        pd.set_option('display.float_format', lambda x: '%.2f' % x)
-        pd.set_option('display.max_colwidth', None)
-        pd.set_option('display.width', None)
-        
-        # Create a formatted display of the data
-        formatted_df = df[['Chinese Name', 'Count', 'Share', 'Win %']].copy()
-        formatted_df['Share'] = formatted_df['Share'].apply(lambda x: f"{x:.2f}%")
-        formatted_df['Win %'] = formatted_df['Win %'].apply(lambda x: f"{x:.2f}%")
-        
-        print("\n{:<30} {:<10} {:<10} {:<10}".format(
-            'Chinese Name', 'Count', 'Share', 'Win %'))
-        print("-" * 60)
-        
-        for _, row in formatted_df.iterrows():
-            print("{:<30} {:<10} {:<10} {:<10}".format(
-                row['Chinese Name'][:27] + '...' if len(row['Chinese Name']) > 27 else row['Chinese Name'],
-                row['Count'],
-                row['Share'],
-                row['Win %']
-            ))
-            
-        # Show top matchup for each deck
-        print("\nTop Matchup for Each Deck:")
-        print("=" * 80)
-        
-        for _, row in df.iterrows():
-            deck_name = row['Deck Name']
-            chinese_name = row['Chinese Name']
-            matchups = row['Matchup Data']
-            
-            print(f"\n{chinese_name} ({deck_name})")
-            print("-" * 80)
-            
-            if matchups:
-                # Sort matchups by total matches
-                matchups.sort(key=lambda x: x['total_matches'], reverse=True)
-                
-                # Get the top matchup (highest match count)
-                top_matchup = matchups[0]
-                print(f"對戰 {top_matchup['opponent_chinese']}:")
-                print(f"  場次: {top_matchup['total_matches']}場")
-                print(f"  勝率: {top_matchup['win_rate']}")
-            else:
-                print("沒有對戰數據") 
+    
+    # 分析TOP DECK對戰數據
+    matchup_matrix = analyze_top_deck_matchups(df)
+    
+    # 打印TOP DECK基本數據
+    print("\n=== TOP DECK 基本數據 ===")
+    print(f"{'中文名稱':<15} {'Count':<8} {'Share':<8} {'Win %':<8}")
+    print("-" * 40)
+    
+    for _, row in df.iterrows():
+        print(f"{row['Chinese Name']:<15} {row['Count']:<8} {row['Share']:<8.1f} {row['Win %']:<8.1f}") 
