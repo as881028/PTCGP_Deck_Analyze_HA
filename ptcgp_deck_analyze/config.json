@@ -11,6 +11,5 @@
   },
   "schema": {
     "openai_api_key": "str"
-  },
-  "image": "as881028/ptcgp_deck_analyze_ha:1.0.0"
+  }
 }
