@@ -64,6 +64,7 @@ if addon_options:
     except Exception as e:
         print("❌ 無法解析 HASSIO_ADDON_OPTIONS:", e)
 
+# openai 庫自 v1 起不再讀取全域變數，因此需在建立客戶端時傳入
 openai.api_key = openai_api_key
 
 logging.basicConfig(
@@ -369,7 +370,7 @@ def ask_chatgpt(deck_df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any
     )
 
     try:
-        client = openai.OpenAI()
+        client = openai.OpenAI(api_key=openai_api_key)
         response = client.chat.completions.create(
             model=CONFIG['CHATGPT']['MODEL'],
             messages=[
