@@ -7,7 +7,7 @@ RUN apk add --no-cache python3 py3-pip
 RUN apk add --no-cache gcc musl-dev libffi-dev
 
 # 你的其他前置檔案
-COPY ptcgp_deck_analyze/requirements.txt /app/requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 # 先更新 pip
 RUN pip install --upgrade pip
@@ -16,7 +16,7 @@ RUN pip install --upgrade pip
 RUN pip install -r /app/requirements.txt
 
 # 複製你的程式碼（如果有）
-COPY ptcgp_deck_analyze /app/ptcgp_deck_analyze
+COPY . /app/ptcgp_deck_analyze
 
 # 確保啟動腳本可以執行
 RUN chmod +x /app/ptcgp_deck_analyze/run.sh
