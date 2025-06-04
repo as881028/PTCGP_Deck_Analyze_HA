@@ -32,13 +32,13 @@ CONFIG = {
             'SYSTEM': 'system_prompt.txt'
         },
         'USER_PROMPT_TEMPLATE': """
-以下為 TOP{deck_count} 牌組彼此對戰矩陣 (JSON)。
+以下為 TOP{deck_count} 牌組對所有對手的對戰矩陣 (JSON)。
 請僅使用 JSON 中資料依 system 演算法計算，禁止引用任何外部數字。
 請「僅使用下方 JSON 數據」依 system 指令計算，不得引用表外或模型記憶的資料。
 
 
 
-### 對戰矩陣 (JSON) - 只含 TOP{deck_count} 彼此對局
+### 對戰矩陣 (JSON) - 包含全部對局
 ```json
 {matchup_matrix}
 ```
@@ -169,7 +169,8 @@ class NameResolver:
                 return h1.text.strip()
         except Exception as e:
             logging.debug(f"Wiki lookup failed for {name}: {e}")
-        return f"[未知]{name}"
+        # 若查詢失敗則直接回傳英文名稱
+        return name
 
 # ============================================================
 # Scrape top decks list from Limitless
@@ -212,7 +213,7 @@ def fetch_decks() -> pd.DataFrame:
 # Fetch matchup table for a given deck
 # ============================================================
 
-def fetch_matchups(deck_name: str, top_decks: List[str], resolver: NameResolver) -> List[Dict[str, Any]]:
+def fetch_matchups(deck_name: str, resolver: NameResolver) -> List[Dict[str, Any]]:
     list_url = "https://play.limitlesstcg.com/decks?game=pocket"
     soup = BeautifulSoup(requests.get(list_url, timeout=8).text, 'html.parser')
     table = soup.find('table')
@@ -256,7 +257,7 @@ def fetch_matchups(deck_name: str, top_decks: List[str], resolver: NameResolver)
             })
         except Exception as e:
             logging.debug(f"Parse matchup row error: {e}")
-    return [r for r in result if r['opponent'] in top_decks]
+    return result
 
 # ============================================================
 # Build matchup matrix for top decks
@@ -264,42 +265,48 @@ def fetch_matchups(deck_name: str, top_decks: List[str], resolver: NameResolver)
 
 def analyze_top_matchups(df: pd.DataFrame, resolver: NameResolver, cache: JsonCache) -> Dict[str, Dict[str, Dict[str, Any]]]:
     top_decks = df['Deck Name'].tolist()
-    matrix: Dict[str, Dict[str, Dict[str, Any]]] = {
-        deck: {opp: {'matches': 0, 'wins': 0, 'win_rate': 0.0}
-              for opp in top_decks}
-        for deck in top_decks
-    }
+    matrix: Dict[str, Dict[str, Dict[str, Any]]] = {}
 
     cached_data = cache.load() or {}
     for deck in top_decks:
         if deck in cached_data:
             matchups = cached_data[deck]
         else:
-            matchups = fetch_matchups(deck, top_decks, resolver)
+            matchups = fetch_matchups(deck, resolver)
             cached_data[deck] = matchups
             cache.save(cached_data)
-        
-        # 更新對戰數據
+        if deck not in matrix:
+            matrix[deck] = {}
+
         for m in matchups:
             opp = m['opponent']
-            if opp in matrix[deck]:  # 確保對手在矩陣中
-                matrix[deck][opp] = {
-                    'matches': m['total_matches'],
-                    'wins': int(m['total_matches'] * m['win_rate'] / 100),
-                    'win_rate': m['win_rate']
-                }
-                # 同時更新對手的對戰數據（鏡像）
+            matrix[deck][opp] = {
+                'matches': m['total_matches'],
+                'wins': int(m['total_matches'] * m['win_rate'] / 100),
+                'win_rate': m['win_rate']
+            }
+
+            if opp in top_decks:
+                if opp not in matrix:
+                    matrix[opp] = {}
                 matrix[opp][deck] = {
                     'matches': m['total_matches'],
                     'wins': m['total_matches'] - int(m['total_matches'] * m['win_rate'] / 100),
                     'win_rate': 100 - m['win_rate']
                 }
+
+    # 補零：確保 TOP 彼此都有紀錄
+    for deck in top_decks:
+        if deck not in matrix:
+            matrix[deck] = {}
+        for opp in top_decks:
+            matrix[deck].setdefault(opp, {'matches': 0, 'wins': 0, 'win_rate': 0.0})
     
     return matrix
 
-def build_matrix_json(matrix: Dict[str, Dict[str, Dict[str, Any]]], df: pd.DataFrame) -> str:
+def build_matrix_json(matrix: Dict[str, Dict[str, Dict[str, Any]]], df: pd.DataFrame, resolver: NameResolver) -> str:
     """
-    產生僅含 TOP 內戰、且附 total_matches 的 JSON，
+    產生包含所有對局、並附 total_matches 的 JSON，
     供 ChatGPT 計算。鏡像對局不計入。
     使用中文牌組名稱。
     """
@@ -308,12 +315,15 @@ def build_matrix_json(matrix: Dict[str, Dict[str, Dict[str, Any]]], df: pd.DataF
     
     clean = {}
     for deck, opps in matrix.items():
-        # 只保留 TOP 名單互打
-        opps_top = {name_map[o]: v for o, v in opps.items() if o in matrix}
-        total = sum(v['matches'] for v in opps_top.values())
-        clean[name_map[deck]] = {
+        deck_cn = name_map.get(deck, resolver.get(deck))
+        formatted_opps = {}
+        for o, v in opps.items():
+            opp_cn = name_map.get(o, resolver.get(o))
+            formatted_opps[opp_cn] = v
+        total = sum(v['matches'] for v in formatted_opps.values())
+        clean[deck_cn] = {
             "total_matches": total,
-            "opponents": opps_top
+            "opponents": formatted_opps
         }
     return json.dumps(clean, ensure_ascii=False, indent=2)
 
@@ -341,13 +351,13 @@ def load_prompt(filename: str) -> str:
         logging.error(f"Error loading prompt file {filename}: {e}")
         return ""
 
-def ask_chatgpt(deck_df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any]]]) -> str:
+def ask_chatgpt(deck_df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any]]], resolver: NameResolver) -> str:
     """Send deck stats + matchup matrix to ChatGPT o3 and get the verdict."""
     if not openai.api_key:
         logging.warning("OPENAI_API_KEY not set. Skipping ChatGPT analysis.")
         return "[未設定 OPENAI_API_KEY，跳過 ChatGPT 推論]"
 
-    matrix_json = build_matrix_json(matrix, deck_df)
+    matrix_json = build_matrix_json(matrix, deck_df, resolver)
 
     # Load system prompt from file
     system_prompt = load_prompt(CONFIG['CHATGPT']['PROMPT_FILES']['SYSTEM'])
@@ -424,7 +434,7 @@ def main():
     print_matrix("勝率矩陣", lambda x: f"{x['win_rate']:.1f}%")
 
     # 4) Ask ChatGPT for verdict
-    verdict = ask_chatgpt(df, matrix)
+    verdict = ask_chatgpt(df, matrix, resolver)
     print("\n=== ChatGPT o3-mini 推論結果 ===")
     print(verdict)
 
