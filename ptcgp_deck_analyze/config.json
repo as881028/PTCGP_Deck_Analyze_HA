@@ -1,6 +1,6 @@
 {
   "name": "Pokemon TCG Pocket Deck Analyzer",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "slug": "ptcgp_deck_analyze",
   "description": "分析 Pokemon TCG Pocket 牌組勝率的 Home Assistant Add-on",
   "startup": "once",
