@@ -1,4 +1,5 @@
-FROM alpine:3.18
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.18
+FROM ${BUILD_FROM}
 
 # 安裝 Python + 基本工具
 RUN apk add --no-cache python3 py3-pip
