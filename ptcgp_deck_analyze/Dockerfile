@@ -7,7 +7,7 @@ RUN apk add --no-cache python3 py3-pip
 RUN apk add --no-cache gcc musl-dev libffi-dev
 
 # 你的其他前置檔案
-COPY requirements.txt /app/requirements.txt
+COPY ptcgp_deck_analyze/requirements.txt /app/requirements.txt
 
 # 先更新 pip
 RUN pip install --upgrade pip
@@ -16,13 +16,13 @@ RUN pip install --upgrade pip
 RUN pip install -r /app/requirements.txt
 
 # 複製你的程式碼（如果有）
-COPY . /app
+COPY ptcgp_deck_analyze /app/ptcgp_deck_analyze
 
 # 確保啟動腳本可以執行
-RUN chmod +x /app/run.sh
+RUN chmod +x /app/ptcgp_deck_analyze/run.sh
 
 # 設定工作目錄
 WORKDIR /app
 
 # 以 run.sh 為進入點，讀取使用者提供的 OPENAI_API_KEY
-ENTRYPOINT ["/app/run.sh"]
+ENTRYPOINT ["/app/ptcgp_deck_analyze/run.sh"]
