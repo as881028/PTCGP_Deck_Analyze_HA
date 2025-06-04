@@ -2,6 +2,7 @@ import os
 import json
 import logging
 import re
+import time
 import requests
 import pandas as pd
 import openai
@@ -27,6 +28,10 @@ CONFIG = {
     'DEBUG': False,
     'MIN_MATCH_COUNT': 5,
     'FORCE_FRESH': True,  # 強制重新抓取資料，忽略緩存
+    # 分批撈取對戰資料以降低伺服器負擔
+    'BATCH_FETCH': True,
+    'BATCH_SIZE': 3,   # 每批處理的牌組數量
+    'BATCH_DELAY': 2,  # 每批之間暫停秒數
     'CHATGPT': {
         'MODEL': 'o3-mini',
         'PROMPT_FILES': {
@@ -274,7 +279,7 @@ def analyze_top_matchups(df: pd.DataFrame, resolver: NameResolver, cache: JsonCa
     matrix: Dict[str, Dict[str, Dict[str, Any]]] = {}
 
     cached_data = cache.load() or {}
-    for deck in top_decks:
+    for idx, deck in enumerate(top_decks):
         if deck in cached_data:
             matchups = cached_data[deck]
         else:
@@ -300,6 +305,11 @@ def analyze_top_matchups(df: pd.DataFrame, resolver: NameResolver, cache: JsonCa
                     'wins': m['total_matches'] - int(m['total_matches'] * m['win_rate'] / 100),
                     'win_rate': 100 - m['win_rate']
                 }
+
+        # 分批處理時在每批之後暫停
+        if CONFIG.get('BATCH_FETCH') and CONFIG.get('BATCH_SIZE'):
+            if (idx + 1) % CONFIG['BATCH_SIZE'] == 0 and (idx + 1) < len(top_decks):
+                time.sleep(CONFIG.get('BATCH_DELAY', 1))
 
     # 補零：確保 TOP 彼此都有紀錄
     for deck in top_decks:
