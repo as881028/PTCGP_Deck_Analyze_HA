@@ -18,8 +18,11 @@ RUN pip install -r /app/requirements.txt
 # 複製你的程式碼（如果有）
 COPY . /app
 
+# 確保啟動腳本可以執行
+RUN chmod +x /app/run.sh
+
 # 設定工作目錄
 WORKDIR /app
 
-# 預設啟動指令（如果有 python 腳本）
-ENTRYPOINT ["python", "/app/scraper.py"]
+# 以 run.sh 為進入點，讀取使用者提供的 OPENAI_API_KEY
+ENTRYPOINT ["/app/run.sh"]

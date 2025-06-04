@@ -4,5 +4,5 @@
 export OPENAI_API_KEY=$(bashio::config 'openai_api_key')
 
 echo "===== Add-on 啟動中 ====="
-python /scraper.py
+python /app/scraper.py
 echo "===== Add-on 執行完畢 ====="
