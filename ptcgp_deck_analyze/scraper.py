@@ -67,6 +67,11 @@ if addon_options:
 # openai 庫自 v1 起不再讀取全域變數，因此需在建立客戶端時傳入
 openai.api_key = openai_api_key
 
+if openai_api_key:
+    logging.info("已載入 OPENAI_API_KEY")
+else:
+    logging.info("未提供 OPENAI_API_KEY，ChatGPT 將被跳過")
+
 logging.basicConfig(
     level=logging.DEBUG if CONFIG['DEBUG'] else logging.INFO,
     format='[%(asctime)s] %(levelname)s: %(message)s'
@@ -355,7 +360,9 @@ def load_prompt(filename: str) -> str:
 def ask_chatgpt(deck_df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any]]], resolver: NameResolver) -> str:
     """Send deck stats + matchup matrix to ChatGPT o3 and get the verdict."""
     if not openai.api_key:
-        logging.warning("OPENAI_API_KEY not set. Skipping ChatGPT analysis.")
+        logging.warning(
+            "未找到 OPENAI_API_KEY，請在環境變數或 config.json 設定 openai_api_key。跳過 ChatGPT 推論"
+        )
         return "[未設定 OPENAI_API_KEY，跳過 ChatGPT 推論]"
 
     matrix_json = build_matrix_json(matrix, deck_df, resolver)
