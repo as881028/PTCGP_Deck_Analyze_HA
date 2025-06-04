@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import re
 import requests
 import pandas as pd
 import openai
@@ -143,9 +144,8 @@ class NameResolver:
     def get(self, english_name: str) -> str:
         if english_name in self.cache:
             return self.cache[english_name]
-        # 處理 Tapu 開頭的寶可夢
-        if english_name.startswith('Tapu'):
-            english_name = english_name.replace(' ', '')
+        # 處理 Tapu 後接空白的寶可夢名稱
+        english_name = re.sub(r'Tapu\s+(\w+)', r'Tapu\1', english_name)
         
         # 分割牌組名稱（通常是兩隻寶可夢）
         parts = english_name.split(' ')
@@ -452,9 +452,8 @@ if __name__ == '__main__':
 
 def get_pokemon_chinese_name(name: str) -> str:
     """Get Chinese name for a Pokemon deck name."""
-    # 處理 Tapu 開頭的寶可夢
-    if name.startswith('Tapu'):
-        name = name.replace(' ', '')
+    # 處理 Tapu 後接空白的寶可夢名稱
+    name = re.sub(r'Tapu\s+(\w+)', r'Tapu\1', name)
     
     # 分割牌組名稱（通常是兩隻寶可夢）
     parts = name.split(' ')
