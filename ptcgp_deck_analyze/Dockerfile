@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 RUN apk add --no-cache python3 py3-pip
 
 # 如果有像 pandas / numpy 這類需要編譯的套件，需要多裝這些編譯工具
-RUN apk add --no-cache gcc musl-dev libffi-dev
+RUN apk add --no-cache gcc musl-dev libffi-dev python3-dev libc-dev make
 
 # 你的其他前置檔案
 COPY requirements.txt /app/requirements.txt
