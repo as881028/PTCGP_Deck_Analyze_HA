@@ -10,11 +10,8 @@ RUN apk add --no-cache gcc musl-dev libffi-dev
 # 你的其他前置檔案
 COPY requirements.txt /app/requirements.txt
 
-# 先更新 pip
-RUN pip install --upgrade pip
-
 # 安裝 Python 依賴
-RUN pip install -r /app/requirements.txt
+RUN python3 -m pip install -r /app/requirements.txt
 
 # 複製你的程式碼（如果有）
 COPY . /app/ptcgp_deck_analyze
