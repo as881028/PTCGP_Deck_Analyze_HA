@@ -15,6 +15,8 @@ RUN python3 -m pip install -r /app/requirements.txt
 
 # 複製你的程式碼（如果有）
 COPY . /app/ptcgp_deck_analyze
+# Debug: 確認程式碼路徑是否正確
+RUN ls -al /app/ptcgp_deck_analyze
 
 # 確保啟動腳本可以執行
 RUN chmod +x /app/ptcgp_deck_analyze/run.sh
