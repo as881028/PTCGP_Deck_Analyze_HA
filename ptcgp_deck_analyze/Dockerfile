@@ -1,11 +1,17 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.18
-FROM ${BUILD_FROM}
+FROM python:3.11-slim
 
-# 安裝 Python + 基本工具
-RUN apk add --no-cache python3 py3-pip
+# 安裝必要套件與編譯工具
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        bash curl wget gcc g++ make git ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
-# 如果有像 pandas / numpy 這類需要編譯的套件，需要多裝這些編譯工具
-RUN apk add --no-cache gcc musl-dev libffi-dev python3-dev libc-dev make
+# 安裝 bashio 以讀取 Add-on 設定
+ENV BASHIO_VERSION=0.17.0
+RUN wget -q https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz -O /tmp/bashio.tar.gz \
+    && tar -xzf /tmp/bashio.tar.gz -C /tmp \
+    && mv /tmp/bashio-${BASHIO_VERSION}/lib /usr/lib/bashio \
+    && ln -s /usr/lib/bashio/bashio /usr/local/bin/bashio \
+    && rm -rf /tmp/bashio.tar.gz /tmp/bashio-${BASHIO_VERSION}
 
 # 你的其他前置檔案
 COPY requirements.txt /app/requirements.txt
