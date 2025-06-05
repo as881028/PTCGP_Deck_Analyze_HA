@@ -1,4 +1,5 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/env bash
+source /usr/lib/bashio/bashio.sh
 
 # 讀取 HA Add-on 中使用者設定的 key
 export OPENAI_API_KEY=$(bashio::config 'openai_api_key')
