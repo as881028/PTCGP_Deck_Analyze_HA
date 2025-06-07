@@ -369,22 +369,26 @@ def load_prompt(filename: str) -> str:
 
 def ask_chatgpt(deck_df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any]]], resolver: NameResolver) -> str:
     """Send deck stats + matchup matrix to ChatGPT o3 and get the verdict."""
-    if not openai.api_key:
-        logging.warning(
-            "未找到 OPENAI_API_KEY，請在環境變數或 config.json 設定 openai_api_key。跳過 ChatGPT 推論"
-        )
-        return "[未設定 OPENAI_API_KEY，跳過 ChatGPT 推論]"
-
     matrix_json = build_matrix_json(matrix, deck_df, resolver)
 
     # Load system prompt from file
     system_prompt = load_prompt(CONFIG['CHATGPT']['PROMPT_FILES']['SYSTEM'])
-    
+
     # Use template from config
     user_prompt = CONFIG['CHATGPT']['USER_PROMPT_TEMPLATE'].format(
         deck_count=len(deck_df),
         matchup_matrix=matrix_json
     )
+
+    if not openai.api_key:
+        logging.warning(
+            "未找到 OPENAI_API_KEY，請在環境變數或 config.json 設定 openai_api_key。跳過 ChatGPT 推論"
+        )
+        print("\n=== ChatGPT 推論輸入 (system) ===")
+        print(system_prompt)
+        print("\n=== ChatGPT 推論輸入 (user) ===")
+        print(user_prompt)
+        return "[未設定 OPENAI_API_KEY，跳過 ChatGPT 推論]"
 
     try:
         client = openai.OpenAI(api_key=openai_api_key)
