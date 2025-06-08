@@ -32,6 +32,7 @@ CONFIG = {
     'BATCH_FETCH': True,
     'BATCH_SIZE': 3,   # 每批處理的牌組數量
     'BATCH_DELAY': 2,  # 每批之間暫停秒數
+    'PROMPT_LOG_DIR': 'prompt_logs',
     'CHATGPT': {
         'MODEL': 'o3-mini',
         'PROMPT_FILES': {
@@ -379,6 +380,20 @@ def ask_chatgpt(deck_df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any
         deck_count=len(deck_df),
         matchup_matrix=matrix_json
     )
+
+    # Write prompts to file for debugging
+    log_dir = CONFIG.get('PROMPT_LOG_DIR')
+    if log_dir:
+        os.makedirs(log_dir, exist_ok=True)
+        log_path = os.path.join(log_dir, f"prompt_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
+        try:
+            with open(log_path, 'w', encoding='utf-8') as f:
+                f.write("=== SYSTEM PROMPT ===\n")
+                f.write(system_prompt)
+                f.write("\n\n=== USER PROMPT ===\n")
+                f.write(user_prompt)
+        except Exception as e:
+            logging.error(f"Error writing prompt log: {e}")
 
     if not openai.api_key:
         logging.warning(
