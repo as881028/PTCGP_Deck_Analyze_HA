@@ -62,15 +62,6 @@ CONFIG = {
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-addon_options = os.getenv("HASSIO_ADDON_OPTIONS")
-if addon_options:
-    try:
-        options = json.loads(addon_options)
-        if 'openai_api_key' in options:
-            openai_api_key = options['openai_api_key']
-    except Exception as e:
-        print("❌ 無法解析 HASSIO_ADDON_OPTIONS:", e)
-
 # openai 庫自 v1 起不再讀取全域變數，因此需在建立客戶端時傳入
 openai.api_key = openai_api_key
 
