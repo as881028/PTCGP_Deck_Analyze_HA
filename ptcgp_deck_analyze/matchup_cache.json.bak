@@ -1,0 +1,2067 @@
+{
+  "timestamp": "2025-06-08T21:36:56.499440",
+  "data": {
+    "Silvally Zeraora": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 36.0,
+        "raw_score": "18 - 32 - 0",
+        "total_matches": 50
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 65.38461538461539,
+        "raw_score": "17 - 9 - 0",
+        "total_matches": 26
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 52.38095238095239,
+        "raw_score": "11 - 10 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 47.05882352941176,
+        "raw_score": "8 - 9 - 0",
+        "total_matches": 17
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 27.27272727272727,
+        "raw_score": "3 - 7 - 1",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 90.0,
+        "raw_score": "9 - 1 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Decidueye ex Decidueye",
+        "opponent_chinese": "狙射树枭 EX + 狙射树枭",
+        "win_rate": 66.66666666666666,
+        "raw_score": "6 - 3 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 44.44444444444444,
+        "raw_score": "4 - 5 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 50.0,
+        "raw_score": "4 - 4 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Magnezone Oricorio",
+        "opponent_chinese": "自爆磁怪 + 花舞鸟",
+        "win_rate": 37.5,
+        "raw_score": "3 - 4 - 1",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 100.0,
+        "raw_score": "6 - 0 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 83.33333333333334,
+        "raw_score": "5 - 1 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Meowscarada Decidueye ex",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭 EX",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Silvally Zeraora",
+        "opponent_chinese": "银伴战兽 + 捷拉奥拉",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Decidueye ex Pheromosa",
+        "opponent_chinese": "狙射树枭 EX + 费洛美螂",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      }
+    ],
+    "Guzzlord ex Celesteela": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 45.714285714285715,
+        "raw_score": "16 - 18 - 1",
+        "total_matches": 35
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 45.0,
+        "raw_score": "9 - 11 - 0",
+        "total_matches": 20
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 72.72727272727273,
+        "raw_score": "8 - 3 - 0",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 30.0,
+        "raw_score": "3 - 7 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 85.71428571428571,
+        "raw_score": "6 - 1 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Garchomp ex Rampardos",
+        "opponent_chinese": "烈咬陆鲨 EX + 战槌龙",
+        "win_rate": 20.0,
+        "raw_score": "1 - 3 - 1",
+        "total_matches": 5
+      }
+    ],
+    "Buzzwole ex Celesteela": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 56.132075471698116,
+        "raw_score": "119 - 88 - 5",
+        "total_matches": 212
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 39.66942148760331,
+        "raw_score": "48 - 70 - 3",
+        "total_matches": 121
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 55.75221238938053,
+        "raw_score": "63 - 47 - 3",
+        "total_matches": 113
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 42.30769230769231,
+        "raw_score": "44 - 58 - 2",
+        "total_matches": 104
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 47.82608695652174,
+        "raw_score": "22 - 22 - 2",
+        "total_matches": 46
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 31.25,
+        "raw_score": "10 - 21 - 1",
+        "total_matches": 32
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 33.33333333333333,
+        "raw_score": "9 - 16 - 2",
+        "total_matches": 27
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 53.84615384615385,
+        "raw_score": "14 - 12 - 0",
+        "total_matches": 26
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 75.0,
+        "raw_score": "18 - 6 - 0",
+        "total_matches": 24
+      },
+      {
+        "opponent": "Giratina ex Arceus ex",
+        "opponent_chinese": "骑拉帝纳 EX + 阿尔宙斯 EX",
+        "win_rate": 72.72727272727273,
+        "raw_score": "16 - 6 - 0",
+        "total_matches": 22
+      },
+      {
+        "opponent": "Decidueye ex Decidueye",
+        "opponent_chinese": "狙射树枭 EX + 狙射树枭",
+        "win_rate": 70.58823529411765,
+        "raw_score": "12 - 5 - 0",
+        "total_matches": 17
+      },
+      {
+        "opponent": "Magnezone Oricorio",
+        "opponent_chinese": "自爆磁怪 + 花舞鸟",
+        "win_rate": 52.94117647058824,
+        "raw_score": "9 - 8 - 0",
+        "total_matches": 17
+      },
+      {
+        "opponent": "Meowscarada Decidueye ex",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭 EX",
+        "win_rate": 31.25,
+        "raw_score": "5 - 11 - 0",
+        "total_matches": 16
+      },
+      {
+        "opponent": "Giratina ex Magnezone",
+        "opponent_chinese": "骑拉帝纳 EX + 自爆磁怪",
+        "win_rate": 71.42857142857143,
+        "raw_score": "10 - 4 - 0",
+        "total_matches": 14
+      },
+      {
+        "opponent": "Guzzlord ex Naganadel",
+        "opponent_chinese": "恶食大王 EX + 四颚针龙",
+        "win_rate": 57.14285714285714,
+        "raw_score": "8 - 6 - 0",
+        "total_matches": 14
+      },
+      {
+        "opponent": "Arceus ex Crobat",
+        "opponent_chinese": "阿尔宙斯 EX + 叉字蝠",
+        "win_rate": 69.23076923076923,
+        "raw_score": "9 - 4 - 0",
+        "total_matches": 13
+      },
+      {
+        "opponent": "Gallade ex Stoutland",
+        "opponent_chinese": "艾路雷朵 EX + 长毛狗",
+        "win_rate": 16.666666666666664,
+        "raw_score": "2 - 10 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Silvally Zeraora",
+        "opponent_chinese": "银伴战兽 + 捷拉奥拉",
+        "win_rate": 63.63636363636363,
+        "raw_score": "7 - 3 - 1",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Tapu Koko ex Pikachu ex",
+        "opponent_chinese": "TapuKoko EX + 皮卡丘 EX",
+        "win_rate": 45.45454545454545,
+        "raw_score": "5 - 6 - 0",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Decidueye ex Pheromosa",
+        "opponent_chinese": "狙射树枭 EX + 费洛美螂",
+        "win_rate": 36.36363636363637,
+        "raw_score": "4 - 6 - 1",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Solgaleo ex Skarmory",
+        "opponent_chinese": "索尔迦雷欧 EX + 盔甲鸟",
+        "win_rate": 90.0,
+        "raw_score": "9 - 1 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 70.0,
+        "raw_score": "7 - 3 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Charizard ex Turtonator",
+        "opponent_chinese": "喷火龙 EX + 爆焰龟兽",
+        "win_rate": 66.66666666666666,
+        "raw_score": "6 - 3 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Giratina ex Greninja",
+        "opponent_chinese": "骑拉帝纳 EX + 甲贺忍蛙",
+        "win_rate": 55.55555555555556,
+        "raw_score": "5 - 1 - 3",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Garchomp ex Rampardos",
+        "opponent_chinese": "烈咬陆鲨 EX + 战槌龙",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Charizard ex",
+        "opponent_chinese": "喷火龙 EX",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Naganadel Guzzlord ex",
+        "opponent_chinese": "四颚针龙 + 恶食大王 EX",
+        "win_rate": 83.33333333333334,
+        "raw_score": "5 - 1 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Greninja Oricorio",
+        "opponent_chinese": "甲贺忍蛙 + 花舞鸟",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Charizard ex Wigglytuff",
+        "opponent_chinese": "喷火龙 EX + 胖可丁",
+        "win_rate": 33.33333333333333,
+        "raw_score": "2 - 4 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Giratina ex Dragonite",
+        "opponent_chinese": "骑拉帝纳 EX + 快龙",
+        "win_rate": 33.33333333333333,
+        "raw_score": "2 - 4 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Naganadel Darkrai ex",
+        "opponent_chinese": "四颚针龙 + 达克莱伊 EX",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Darkrai ex Weezing",
+        "opponent_chinese": "达克莱伊 EX + 双弹瓦斯",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Crabominable ex Palkia ex",
+        "opponent_chinese": "好胜毛蟹 EX + 帕路奇亚 EX",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Gengar ex Gengar",
+        "opponent_chinese": "耿鬼 EX + 耿鬼",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      }
+    ],
+    "Silvally Rampardos": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 49.375,
+        "raw_score": "395 - 395 - 10",
+        "total_matches": 800
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 42.98850574712644,
+        "raw_score": "187 - 238 - 10",
+        "total_matches": 435
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 42.673521850899746,
+        "raw_score": "166 - 216 - 7",
+        "total_matches": 389
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 48.77300613496933,
+        "raw_score": "159 - 161 - 6",
+        "total_matches": 326
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 41.509433962264154,
+        "raw_score": "88 - 119 - 5",
+        "total_matches": 212
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 48.93617021276596,
+        "raw_score": "69 - 67 - 5",
+        "total_matches": 141
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 64.74820143884892,
+        "raw_score": "90 - 49 - 0",
+        "total_matches": 139
+      },
+      {
+        "opponent": "Decidueye ex Decidueye",
+        "opponent_chinese": "狙射树枭 EX + 狙射树枭",
+        "win_rate": 73.80952380952381,
+        "raw_score": "62 - 22 - 0",
+        "total_matches": 84
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 44.15584415584416,
+        "raw_score": "34 - 40 - 3",
+        "total_matches": 77
+      },
+      {
+        "opponent": "Giratina ex Magnezone",
+        "opponent_chinese": "骑拉帝纳 EX + 自爆磁怪",
+        "win_rate": 47.14285714285714,
+        "raw_score": "33 - 37 - 0",
+        "total_matches": 70
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 70.3125,
+        "raw_score": "45 - 18 - 1",
+        "total_matches": 64
+      },
+      {
+        "opponent": "Giratina ex Arceus ex",
+        "opponent_chinese": "骑拉帝纳 EX + 阿尔宙斯 EX",
+        "win_rate": 45.3125,
+        "raw_score": "29 - 34 - 1",
+        "total_matches": 64
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 56.451612903225815,
+        "raw_score": "35 - 26 - 1",
+        "total_matches": 62
+      },
+      {
+        "opponent": "Magnezone Oricorio",
+        "opponent_chinese": "自爆磁怪 + 花舞鸟",
+        "win_rate": 75.0,
+        "raw_score": "45 - 14 - 1",
+        "total_matches": 60
+      },
+      {
+        "opponent": "Meowscarada Decidueye ex",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭 EX",
+        "win_rate": 83.92857142857143,
+        "raw_score": "47 - 9 - 0",
+        "total_matches": 56
+      },
+      {
+        "opponent": "Silvally Zeraora",
+        "opponent_chinese": "银伴战兽 + 捷拉奥拉",
+        "win_rate": 64.0,
+        "raw_score": "32 - 18 - 0",
+        "total_matches": 50
+      },
+      {
+        "opponent": "Gallade ex Stoutland",
+        "opponent_chinese": "艾路雷朵 EX + 长毛狗",
+        "win_rate": 50.0,
+        "raw_score": "24 - 24 - 0",
+        "total_matches": 48
+      },
+      {
+        "opponent": "Arceus ex Crobat",
+        "opponent_chinese": "阿尔宙斯 EX + 叉字蝠",
+        "win_rate": 55.81395348837209,
+        "raw_score": "24 - 18 - 1",
+        "total_matches": 43
+      },
+      {
+        "opponent": "Guzzlord ex Naganadel",
+        "opponent_chinese": "恶食大王 EX + 四颚针龙",
+        "win_rate": 54.761904761904766,
+        "raw_score": "23 - 18 - 1",
+        "total_matches": 42
+      },
+      {
+        "opponent": "Charizard ex Turtonator",
+        "opponent_chinese": "喷火龙 EX + 爆焰龟兽",
+        "win_rate": 82.5,
+        "raw_score": "33 - 6 - 1",
+        "total_matches": 40
+      },
+      {
+        "opponent": "Decidueye ex Pheromosa",
+        "opponent_chinese": "狙射树枭 EX + 费洛美螂",
+        "win_rate": 64.86486486486487,
+        "raw_score": "24 - 13 - 0",
+        "total_matches": 37
+      },
+      {
+        "opponent": "Guzzlord ex Celesteela",
+        "opponent_chinese": "恶食大王 EX + 铁火辉夜",
+        "win_rate": 51.42857142857142,
+        "raw_score": "18 - 16 - 1",
+        "total_matches": 35
+      },
+      {
+        "opponent": "Garchomp ex Rampardos",
+        "opponent_chinese": "烈咬陆鲨 EX + 战槌龙",
+        "win_rate": 60.0,
+        "raw_score": "18 - 12 - 0",
+        "total_matches": 30
+      },
+      {
+        "opponent": "Solgaleo ex Skarmory",
+        "opponent_chinese": "索尔迦雷欧 EX + 盔甲鸟",
+        "win_rate": 60.0,
+        "raw_score": "18 - 10 - 2",
+        "total_matches": 30
+      },
+      {
+        "opponent": "Greninja Oricorio",
+        "opponent_chinese": "甲贺忍蛙 + 花舞鸟",
+        "win_rate": 86.20689655172413,
+        "raw_score": "25 - 4 - 0",
+        "total_matches": 29
+      },
+      {
+        "opponent": "Charizard ex Wigglytuff",
+        "opponent_chinese": "喷火龙 EX + 胖可丁",
+        "win_rate": 62.5,
+        "raw_score": "15 - 9 - 0",
+        "total_matches": 24
+      },
+      {
+        "opponent": "Tapu Koko ex Pikachu ex",
+        "opponent_chinese": "TapuKoko EX + 皮卡丘 EX",
+        "win_rate": 66.66666666666666,
+        "raw_score": "14 - 6 - 1",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Giratina ex Greninja",
+        "opponent_chinese": "骑拉帝纳 EX + 甲贺忍蛙",
+        "win_rate": 66.66666666666666,
+        "raw_score": "14 - 7 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Lycanroc Rampardos",
+        "opponent_chinese": "鬃岩狼人 + 战槌龙",
+        "win_rate": 72.22222222222221,
+        "raw_score": "13 - 4 - 1",
+        "total_matches": 18
+      },
+      {
+        "opponent": "Charizard ex",
+        "opponent_chinese": "喷火龙 EX",
+        "win_rate": 85.71428571428571,
+        "raw_score": "12 - 2 - 0",
+        "total_matches": 14
+      },
+      {
+        "opponent": "Stoutland Rampardos",
+        "opponent_chinese": "长毛狗 + 战槌龙",
+        "win_rate": 71.42857142857143,
+        "raw_score": "10 - 4 - 0",
+        "total_matches": 14
+      },
+      {
+        "opponent": "Darkrai ex Weezing",
+        "opponent_chinese": "达克莱伊 EX + 双弹瓦斯",
+        "win_rate": 50.0,
+        "raw_score": "7 - 7 - 0",
+        "total_matches": 14
+      },
+      {
+        "opponent": "Gallade ex Rampardos",
+        "opponent_chinese": "艾路雷朵 EX + 战槌龙",
+        "win_rate": 76.92307692307693,
+        "raw_score": "10 - 2 - 1",
+        "total_matches": 13
+      },
+      {
+        "opponent": "Infernape ex Turtonator",
+        "opponent_chinese": "烈焰猴 EX + 爆焰龟兽",
+        "win_rate": 69.23076923076923,
+        "raw_score": "9 - 3 - 1",
+        "total_matches": 13
+      },
+      {
+        "opponent": "Pikachu ex Tapu Koko ex",
+        "opponent_chinese": "皮卡丘 EX + Tapu + Koko EX",
+        "win_rate": 69.23076923076923,
+        "raw_score": "9 - 4 - 0",
+        "total_matches": 13
+      },
+      {
+        "opponent": "Darkrai ex Guzzlord ex",
+        "opponent_chinese": "达克莱伊 EX + 恶食大王 EX",
+        "win_rate": 38.46153846153847,
+        "raw_score": "5 - 8 - 0",
+        "total_matches": 13
+      },
+      {
+        "opponent": "Naganadel Guzzlord ex",
+        "opponent_chinese": "四颚针龙 + 恶食大王 EX",
+        "win_rate": 66.66666666666666,
+        "raw_score": "8 - 2 - 2",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Incineroar ex Turtonator",
+        "opponent_chinese": "炽焰咆哮虎 EX + 爆焰龟兽",
+        "win_rate": 66.66666666666666,
+        "raw_score": "8 - 4 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Magnezone Tapu Koko ex",
+        "opponent_chinese": "自爆磁怪 + Tapu + Koko EX",
+        "win_rate": 50.0,
+        "raw_score": "6 - 6 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Greninja Silvally",
+        "opponent_chinese": "甲贺忍蛙 + 银伴战兽",
+        "win_rate": 72.72727272727273,
+        "raw_score": "8 - 3 - 0",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Gengar ex Gengar",
+        "opponent_chinese": "耿鬼 EX + 耿鬼",
+        "win_rate": 80.0,
+        "raw_score": "8 - 2 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Gengar Giratina ex",
+        "opponent_chinese": "耿鬼 + 骑拉帝纳 EX",
+        "win_rate": 55.55555555555556,
+        "raw_score": "5 - 3 - 1",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Charizard ex Shiinotic",
+        "opponent_chinese": "喷火龙 EX + 灯罩夜菇",
+        "win_rate": 55.55555555555556,
+        "raw_score": "5 - 4 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Lunala ex Giratina ex",
+        "opponent_chinese": "露奈雅拉 EX + 骑拉帝纳 EX",
+        "win_rate": 100.0,
+        "raw_score": "8 - 0 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Lucario Rampardos",
+        "opponent_chinese": "路卡利欧 + 战槌龙",
+        "win_rate": 75.0,
+        "raw_score": "6 - 2 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Tapu Koko ex Zeraora",
+        "opponent_chinese": "TapuKoko EX + 捷拉奥拉",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Incineroar ex Magcargo",
+        "opponent_chinese": "炽焰咆哮虎 EX + 熔岩蜗牛",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Magnezone Giratina ex",
+        "opponent_chinese": "自爆磁怪 + 骑拉帝纳 EX",
+        "win_rate": 50.0,
+        "raw_score": "4 - 4 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Silvally Giratina ex",
+        "opponent_chinese": "银伴战兽 + 骑拉帝纳 EX",
+        "win_rate": 25.0,
+        "raw_score": "2 - 5 - 1",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Incineroar ex Charizard ex",
+        "opponent_chinese": "炽焰咆哮虎 EX + 喷火龙 EX",
+        "win_rate": 71.42857142857143,
+        "raw_score": "5 - 2 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Aerodactyl ex Silvally",
+        "opponent_chinese": "化石翼龙 EX + 银伴战兽",
+        "win_rate": 57.14285714285714,
+        "raw_score": "4 - 3 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Silvally Dusk Mane Necrozma",
+        "opponent_chinese": "银伴战兽 + Dusk + Mane + 奈克洛兹玛",
+        "win_rate": 42.857142857142854,
+        "raw_score": "3 - 4 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Giratina ex Stoutland",
+        "opponent_chinese": "骑拉帝纳 EX + 长毛狗",
+        "win_rate": 28.57142857142857,
+        "raw_score": "2 - 4 - 1",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Meowscarada Decidueye",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭",
+        "win_rate": 83.33333333333334,
+        "raw_score": "5 - 1 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Paldean Clodsire ex Guzzlord ex",
+        "opponent_chinese": "Paldean + 土王 EX + 恶食大王 EX",
+        "win_rate": 83.33333333333334,
+        "raw_score": "5 - 1 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Celebi ex Serperior",
+        "opponent_chinese": "时拉比 EX + 君主蛇",
+        "win_rate": 83.33333333333334,
+        "raw_score": "5 - 1 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Gengar ex Gengar",
+        "opponent_chinese": "耿鬼 EX + 耿鬼",
+        "win_rate": 83.33333333333334,
+        "raw_score": "5 - 1 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Incineroar ex Silvally",
+        "opponent_chinese": "炽焰咆哮虎 EX + 银伴战兽",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Alakazam Stoutland",
+        "opponent_chinese": "胡地 + 长毛狗",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Crabominable ex Palkia ex",
+        "opponent_chinese": "好胜毛蟹 EX + 帕路奇亚 EX",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Darkrai ex Naganadel",
+        "opponent_chinese": "达克莱伊 EX + 四颚针龙",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Solgaleo ex Dialga ex",
+        "opponent_chinese": "索尔迦雷欧 EX + 帝牙卢卡 EX",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Naganadel Darkrai ex",
+        "opponent_chinese": "四颚针龙 + 达克莱伊 EX",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Magnezone Shiinotic",
+        "opponent_chinese": "自爆磁怪 + 灯罩夜菇",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Arcanine ex Turtonator",
+        "opponent_chinese": "风速狗 EX + 爆焰龟兽",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Solgaleo ex Silvally",
+        "opponent_chinese": "索尔迦雷欧 EX + 银伴战兽",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Silvally",
+        "opponent_chinese": "银伴战兽",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Giratina ex Ultra Necrozma ex",
+        "opponent_chinese": "骑拉帝纳 EX + Ultra + 奈克洛兹玛 EX",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Giratina ex Dragonite",
+        "opponent_chinese": "骑拉帝纳 EX + 快龙",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Solgaleo ex",
+        "opponent_chinese": "索尔迦雷欧 EX",
+        "win_rate": 33.33333333333333,
+        "raw_score": "2 - 4 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Silvally Turtonator",
+        "opponent_chinese": "银伴战兽 + 爆焰龟兽",
+        "win_rate": 33.33333333333333,
+        "raw_score": "2 - 4 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Magnezone Silvally",
+        "opponent_chinese": "自爆磁怪 + 银伴战兽",
+        "win_rate": 33.33333333333333,
+        "raw_score": "2 - 4 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Infernape ex Silvally",
+        "opponent_chinese": "烈焰猴 EX + 银伴战兽",
+        "win_rate": 16.666666666666664,
+        "raw_score": "1 - 4 - 1",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Tsareena",
+        "opponent_chinese": "甜冷美后",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Gallade ex Lucario",
+        "opponent_chinese": "艾路雷朵 EX + 路卡利欧",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Wugtrio ex Silvally",
+        "opponent_chinese": "三海地鼠 EX + 银伴战兽",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Darkrai ex Arceus ex",
+        "opponent_chinese": "达克莱伊 EX + 阿尔宙斯 EX",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Magnezone Pikachu ex",
+        "opponent_chinese": "自爆磁怪 + 皮卡丘 EX",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Giratina ex Silvally",
+        "opponent_chinese": "骑拉帝纳 EX + 银伴战兽",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Dialga ex Arceus ex",
+        "opponent_chinese": "帝牙卢卡 EX + 阿尔宙斯 EX",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Darkrai ex Giratina ex",
+        "opponent_chinese": "达克莱伊 EX + 骑拉帝纳 EX",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Solgaleo ex Snorlax",
+        "opponent_chinese": "索尔迦雷欧 EX + 卡比兽",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Aerodactyl ex Rampardos",
+        "opponent_chinese": "化石翼龙 EX + 战槌龙",
+        "win_rate": 20.0,
+        "raw_score": "1 - 4 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Gengar",
+        "opponent_chinese": "耿鬼",
+        "win_rate": 20.0,
+        "raw_score": "1 - 4 - 0",
+        "total_matches": 5
+      }
+    ],
+    "Buzzwole ex Pheromosa": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 54.71264367816092,
+        "raw_score": "238 - 187 - 10",
+        "total_matches": 435
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 48.95104895104895,
+        "raw_score": "140 - 140 - 6",
+        "total_matches": 286
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 60.08771929824561,
+        "raw_score": "137 - 88 - 3",
+        "total_matches": 228
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 36.69724770642202,
+        "raw_score": "80 - 135 - 3",
+        "total_matches": 218
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 57.85123966942148,
+        "raw_score": "70 - 48 - 3",
+        "total_matches": 121
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 31.818181818181817,
+        "raw_score": "28 - 58 - 2",
+        "total_matches": 88
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 45.67901234567901,
+        "raw_score": "37 - 44 - 0",
+        "total_matches": 81
+      },
+      {
+        "opponent": "Decidueye ex Decidueye",
+        "opponent_chinese": "狙射树枭 EX + 狙射树枭",
+        "win_rate": 44.285714285714285,
+        "raw_score": "31 - 39 - 0",
+        "total_matches": 70
+      },
+      {
+        "opponent": "Meowscarada Decidueye ex",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭 EX",
+        "win_rate": 52.94117647058824,
+        "raw_score": "27 - 23 - 1",
+        "total_matches": 51
+      },
+      {
+        "opponent": "Giratina ex Magnezone",
+        "opponent_chinese": "骑拉帝纳 EX + 自爆磁怪",
+        "win_rate": 56.25,
+        "raw_score": "27 - 21 - 0",
+        "total_matches": 48
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 68.88888888888889,
+        "raw_score": "31 - 14 - 0",
+        "total_matches": 45
+      },
+      {
+        "opponent": "Giratina ex Arceus ex",
+        "opponent_chinese": "骑拉帝纳 EX + 阿尔宙斯 EX",
+        "win_rate": 65.9090909090909,
+        "raw_score": "29 - 13 - 2",
+        "total_matches": 44
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 43.24324324324324,
+        "raw_score": "16 - 18 - 3",
+        "total_matches": 37
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 58.333333333333336,
+        "raw_score": "21 - 15 - 0",
+        "total_matches": 36
+      },
+      {
+        "opponent": "Decidueye ex Pheromosa",
+        "opponent_chinese": "狙射树枭 EX + 费洛美螂",
+        "win_rate": 44.44444444444444,
+        "raw_score": "16 - 20 - 0",
+        "total_matches": 36
+      },
+      {
+        "opponent": "Magnezone Oricorio",
+        "opponent_chinese": "自爆磁怪 + 花舞鸟",
+        "win_rate": 36.11111111111111,
+        "raw_score": "13 - 23 - 0",
+        "total_matches": 36
+      },
+      {
+        "opponent": "Charizard ex",
+        "opponent_chinese": "喷火龙 EX",
+        "win_rate": 30.0,
+        "raw_score": "9 - 21 - 0",
+        "total_matches": 30
+      },
+      {
+        "opponent": "Gallade ex Stoutland",
+        "opponent_chinese": "艾路雷朵 EX + 长毛狗",
+        "win_rate": 48.0,
+        "raw_score": "12 - 13 - 0",
+        "total_matches": 25
+      },
+      {
+        "opponent": "Charizard ex Turtonator",
+        "opponent_chinese": "喷火龙 EX + 爆焰龟兽",
+        "win_rate": 24.0,
+        "raw_score": "6 - 19 - 0",
+        "total_matches": 25
+      },
+      {
+        "opponent": "Guzzlord ex Naganadel",
+        "opponent_chinese": "恶食大王 EX + 四颚针龙",
+        "win_rate": 66.66666666666666,
+        "raw_score": "16 - 8 - 0",
+        "total_matches": 24
+      },
+      {
+        "opponent": "Arceus ex Crobat",
+        "opponent_chinese": "阿尔宙斯 EX + 叉字蝠",
+        "win_rate": 68.18181818181817,
+        "raw_score": "15 - 7 - 0",
+        "total_matches": 22
+      },
+      {
+        "opponent": "Tapu Koko ex Pikachu ex",
+        "opponent_chinese": "TapuKoko EX + 皮卡丘 EX",
+        "win_rate": 66.66666666666666,
+        "raw_score": "14 - 7 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Garchomp ex Rampardos",
+        "opponent_chinese": "烈咬陆鲨 EX + 战槌龙",
+        "win_rate": 66.66666666666666,
+        "raw_score": "14 - 7 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Solgaleo ex Skarmory",
+        "opponent_chinese": "索尔迦雷欧 EX + 盔甲鸟",
+        "win_rate": 70.0,
+        "raw_score": "14 - 6 - 0",
+        "total_matches": 20
+      },
+      {
+        "opponent": "Silvally Zeraora",
+        "opponent_chinese": "银伴战兽 + 捷拉奥拉",
+        "win_rate": 52.94117647058824,
+        "raw_score": "9 - 8 - 0",
+        "total_matches": 17
+      },
+      {
+        "opponent": "Naganadel Guzzlord ex",
+        "opponent_chinese": "四颚针龙 + 恶食大王 EX",
+        "win_rate": 62.5,
+        "raw_score": "10 - 6 - 0",
+        "total_matches": 16
+      },
+      {
+        "opponent": "Giratina ex Greninja",
+        "opponent_chinese": "骑拉帝纳 EX + 甲贺忍蛙",
+        "win_rate": 46.666666666666664,
+        "raw_score": "7 - 8 - 0",
+        "total_matches": 15
+      },
+      {
+        "opponent": "Greninja Oricorio",
+        "opponent_chinese": "甲贺忍蛙 + 花舞鸟",
+        "win_rate": 25.0,
+        "raw_score": "3 - 9 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Lucario Rampardos",
+        "opponent_chinese": "路卡利欧 + 战槌龙",
+        "win_rate": 80.0,
+        "raw_score": "8 - 2 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Gallade ex Rampardos",
+        "opponent_chinese": "艾路雷朵 EX + 战槌龙",
+        "win_rate": 70.0,
+        "raw_score": "7 - 3 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Guzzlord ex Celesteela",
+        "opponent_chinese": "恶食大王 EX + 铁火辉夜",
+        "win_rate": 70.0,
+        "raw_score": "7 - 3 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Gengar Tapu Lele",
+        "opponent_chinese": "耿鬼 + Tapu + Lele",
+        "win_rate": 60.0,
+        "raw_score": "6 - 4 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Meowscarada Decidueye",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭",
+        "win_rate": 60.0,
+        "raw_score": "6 - 4 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Incineroar ex Turtonator",
+        "opponent_chinese": "炽焰咆哮虎 EX + 爆焰龟兽",
+        "win_rate": 40.0,
+        "raw_score": "4 - 6 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Charizard ex Wigglytuff",
+        "opponent_chinese": "喷火龙 EX + 胖可丁",
+        "win_rate": 20.0,
+        "raw_score": "2 - 8 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Magnezone Tapu Koko ex",
+        "opponent_chinese": "自爆磁怪 + Tapu + Koko EX",
+        "win_rate": 55.55555555555556,
+        "raw_score": "5 - 4 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Tapu Koko ex Zeraora",
+        "opponent_chinese": "TapuKoko EX + 捷拉奥拉",
+        "win_rate": 33.33333333333333,
+        "raw_score": "3 - 6 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Celebi ex Serperior",
+        "opponent_chinese": "时拉比 EX + 君主蛇",
+        "win_rate": 75.0,
+        "raw_score": "6 - 2 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Gengar ex Gengar",
+        "opponent_chinese": "耿鬼 EX + 耿鬼",
+        "win_rate": 37.5,
+        "raw_score": "3 - 5 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Lycanroc Rampardos",
+        "opponent_chinese": "鬃岩狼人 + 战槌龙",
+        "win_rate": 57.14285714285714,
+        "raw_score": "4 - 3 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Darkrai ex Naganadel",
+        "opponent_chinese": "达克莱伊 EX + 四颚针龙",
+        "win_rate": 57.14285714285714,
+        "raw_score": "4 - 3 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Guzzlord ex",
+        "opponent_chinese": "恶食大王 EX",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Silvally Turtonator",
+        "opponent_chinese": "银伴战兽 + 爆焰龟兽",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 2 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Crabominable ex Palkia ex",
+        "opponent_chinese": "好胜毛蟹 EX + 帕路奇亚 EX",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Silvally Giratina ex",
+        "opponent_chinese": "银伴战兽 + 骑拉帝纳 EX",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Greninja Silvally",
+        "opponent_chinese": "甲贺忍蛙 + 银伴战兽",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Alolan Raichu ex Tapu Koko ex",
+        "opponent_chinese": "Alolan + 雷丘 EX + Tapu + Koko EX",
+        "win_rate": 50.0,
+        "raw_score": "3 - 2 - 1",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Weezing Darkrai ex",
+        "opponent_chinese": "双弹瓦斯 + 达克莱伊 EX",
+        "win_rate": 100.0,
+        "raw_score": "5 - 0 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Darkrai ex Guzzlord ex",
+        "opponent_chinese": "达克莱伊 EX + 恶食大王 EX",
+        "win_rate": 80.0,
+        "raw_score": "4 - 0 - 1",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Rampardos Silvally",
+        "opponent_chinese": "战槌龙 + 银伴战兽",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Incineroar ex Magcargo",
+        "opponent_chinese": "炽焰咆哮虎 EX + 熔岩蜗牛",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Tapu Koko ex Oricorio",
+        "opponent_chinese": "TapuKoko EX + 花舞鸟",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Infernape ex Turtonator",
+        "opponent_chinese": "烈焰猴 EX + 爆焰龟兽",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Magnezone Pikachu ex",
+        "opponent_chinese": "自爆磁怪 + 皮卡丘 EX",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Wishiwashi ex Wishiwashi",
+        "opponent_chinese": "弱丁鱼 EX + 弱丁鱼",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Giratina ex Stoutland",
+        "opponent_chinese": "骑拉帝纳 EX + 长毛狗",
+        "win_rate": 20.0,
+        "raw_score": "1 - 4 - 0",
+        "total_matches": 5
+      }
+    ],
+    "Giratina ex Arceus ex": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 53.125,
+        "raw_score": "34 - 29 - 1",
+        "total_matches": 64
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 29.545454545454547,
+        "raw_score": "13 - 29 - 2",
+        "total_matches": 44
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 69.23076923076923,
+        "raw_score": "27 - 12 - 0",
+        "total_matches": 39
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 41.17647058823529,
+        "raw_score": "14 - 19 - 1",
+        "total_matches": 34
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 27.27272727272727,
+        "raw_score": "6 - 16 - 0",
+        "total_matches": 22
+      },
+      {
+        "opponent": "Meowscarada Decidueye ex",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭 EX",
+        "win_rate": 61.53846153846154,
+        "raw_score": "8 - 4 - 1",
+        "total_matches": 13
+      },
+      {
+        "opponent": "Charizard ex Turtonator",
+        "opponent_chinese": "喷火龙 EX + 爆焰龟兽",
+        "win_rate": 50.0,
+        "raw_score": "5 - 5 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Arceus ex Crobat",
+        "opponent_chinese": "阿尔宙斯 EX + 叉字蝠",
+        "win_rate": 55.55555555555556,
+        "raw_score": "5 - 4 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Decidueye ex Decidueye",
+        "opponent_chinese": "狙射树枭 EX + 狙射树枭",
+        "win_rate": 85.71428571428571,
+        "raw_score": "6 - 1 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 57.14285714285714,
+        "raw_score": "4 - 3 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Magnezone Oricorio",
+        "opponent_chinese": "自爆磁怪 + 花舞鸟",
+        "win_rate": 42.857142857142854,
+        "raw_score": "3 - 4 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 28.57142857142857,
+        "raw_score": "2 - 5 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Giratina ex Magnezone",
+        "opponent_chinese": "骑拉帝纳 EX + 自爆磁怪",
+        "win_rate": 100.0,
+        "raw_score": "6 - 0 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Guzzlord ex Naganadel",
+        "opponent_chinese": "恶食大王 EX + 四颚针龙",
+        "win_rate": 50.0,
+        "raw_score": "3 - 2 - 1",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Decidueye ex Pheromosa",
+        "opponent_chinese": "狙射树枭 EX + 费洛美螂",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      }
+    ],
+    "Guzzlord ex Naganadel": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 42.857142857142854,
+        "raw_score": "18 - 23 - 1",
+        "total_matches": 42
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 33.33333333333333,
+        "raw_score": "8 - 16 - 0",
+        "total_matches": 24
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 52.38095238095239,
+        "raw_score": "11 - 10 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 38.095238095238095,
+        "raw_score": "8 - 13 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 42.857142857142854,
+        "raw_score": "6 - 8 - 0",
+        "total_matches": 14
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 70.0,
+        "raw_score": "7 - 3 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 60.0,
+        "raw_score": "6 - 4 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Giratina ex Magnezone",
+        "opponent_chinese": "骑拉帝纳 EX + 自爆磁怪",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 71.42857142857143,
+        "raw_score": "5 - 2 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Giratina ex Arceus ex",
+        "opponent_chinese": "骑拉帝纳 EX + 阿尔宙斯 EX",
+        "win_rate": 33.33333333333333,
+        "raw_score": "2 - 3 - 1",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Charizard ex Turtonator",
+        "opponent_chinese": "喷火龙 EX + 爆焰龟兽",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Charizard ex Wigglytuff",
+        "opponent_chinese": "喷火龙 EX + 胖可丁",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Gallade ex Stoutland",
+        "opponent_chinese": "艾路雷朵 EX + 长毛狗",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Decidueye ex Decidueye",
+        "opponent_chinese": "狙射树枭 EX + 狙射树枭",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Arceus ex Crobat",
+        "opponent_chinese": "阿尔宙斯 EX + 叉字蝠",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 20.0,
+        "raw_score": "1 - 4 - 0",
+        "total_matches": 5
+      }
+    ],
+    "Gallade ex Stoutland": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 50.0,
+        "raw_score": "24 - 24 - 0",
+        "total_matches": 48
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 37.93103448275862,
+        "raw_score": "11 - 18 - 0",
+        "total_matches": 29
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 52.0,
+        "raw_score": "13 - 12 - 0",
+        "total_matches": 25
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 33.33333333333333,
+        "raw_score": "7 - 14 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 83.33333333333334,
+        "raw_score": "10 - 2 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 50.0,
+        "raw_score": "5 - 4 - 1",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 87.5,
+        "raw_score": "7 - 1 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Magnezone Oricorio",
+        "opponent_chinese": "自爆磁怪 + 花舞鸟",
+        "win_rate": 25.0,
+        "raw_score": "2 - 6 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 66.66666666666666,
+        "raw_score": "4 - 1 - 1",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 80.0,
+        "raw_score": "4 - 1 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Guzzlord ex Naganadel",
+        "opponent_chinese": "恶食大王 EX + 四颚针龙",
+        "win_rate": 20.0,
+        "raw_score": "1 - 4 - 0",
+        "total_matches": 5
+      }
+    ],
+    "Solgaleo ex Shiinotic": [
+      {
+        "opponent": "Silvally Rampardos",
+        "opponent_chinese": "银伴战兽 + 战槌龙",
+        "win_rate": 55.52699228791774,
+        "raw_score": "216 - 166 - 7",
+        "total_matches": 389
+      },
+      {
+        "opponent": "Solgaleo ex Shiinotic",
+        "opponent_chinese": "索尔迦雷欧 EX + 灯罩夜菇",
+        "win_rate": 48.943661971830984,
+        "raw_score": "139 - 139 - 6",
+        "total_matches": 284
+      },
+      {
+        "opponent": "Buzzwole ex Pheromosa",
+        "opponent_chinese": "爆肌蚊 EX + 费洛美螂",
+        "win_rate": 61.92660550458715,
+        "raw_score": "135 - 80 - 3",
+        "total_matches": 218
+      },
+      {
+        "opponent": "Giratina ex Darkrai ex",
+        "opponent_chinese": "骑拉帝纳 EX + 达克莱伊 EX",
+        "win_rate": 48.29545454545455,
+        "raw_score": "85 - 86 - 5",
+        "total_matches": 176
+      },
+      {
+        "opponent": "Buzzwole ex Celesteela",
+        "opponent_chinese": "爆肌蚊 EX + 铁火辉夜",
+        "win_rate": 55.769230769230774,
+        "raw_score": "58 - 44 - 2",
+        "total_matches": 104
+      },
+      {
+        "opponent": "Charizard ex Silvally",
+        "opponent_chinese": "喷火龙 EX + 银伴战兽",
+        "win_rate": 36.36363636363637,
+        "raw_score": "32 - 54 - 2",
+        "total_matches": 88
+      },
+      {
+        "opponent": "Silvally Blacephalon",
+        "opponent_chinese": "银伴战兽 + 砰头小丑",
+        "win_rate": 68.75,
+        "raw_score": "44 - 20 - 0",
+        "total_matches": 64
+      },
+      {
+        "opponent": "Charizard ex Incineroar ex",
+        "opponent_chinese": "喷火龙 EX + 炽焰咆哮虎 EX",
+        "win_rate": 38.59649122807017,
+        "raw_score": "22 - 34 - 1",
+        "total_matches": 57
+      },
+      {
+        "opponent": "Silvally Oricorio",
+        "opponent_chinese": "银伴战兽 + 花舞鸟",
+        "win_rate": 17.142857142857142,
+        "raw_score": "6 - 28 - 1",
+        "total_matches": 35
+      },
+      {
+        "opponent": "Magnezone Oricorio",
+        "opponent_chinese": "自爆磁怪 + 花舞鸟",
+        "win_rate": 14.285714285714285,
+        "raw_score": "5 - 29 - 1",
+        "total_matches": 35
+      },
+      {
+        "opponent": "Giratina ex Arceus ex",
+        "opponent_chinese": "骑拉帝纳 EX + 阿尔宙斯 EX",
+        "win_rate": 55.88235294117647,
+        "raw_score": "19 - 14 - 1",
+        "total_matches": 34
+      },
+      {
+        "opponent": "Gallade ex Stoutland",
+        "opponent_chinese": "艾路雷朵 EX + 长毛狗",
+        "win_rate": 62.06896551724138,
+        "raw_score": "18 - 11 - 0",
+        "total_matches": 29
+      },
+      {
+        "opponent": "Guzzlord ex Nihilego",
+        "opponent_chinese": "恶食大王 EX + 虚吾伊德",
+        "win_rate": 55.55555555555556,
+        "raw_score": "15 - 12 - 0",
+        "total_matches": 27
+      },
+      {
+        "opponent": "Silvally Zeraora",
+        "opponent_chinese": "银伴战兽 + 捷拉奥拉",
+        "win_rate": 34.61538461538461,
+        "raw_score": "9 - 17 - 0",
+        "total_matches": 26
+      },
+      {
+        "opponent": "Greninja Oricorio",
+        "opponent_chinese": "甲贺忍蛙 + 花舞鸟",
+        "win_rate": 20.833333333333336,
+        "raw_score": "5 - 19 - 0",
+        "total_matches": 24
+      },
+      {
+        "opponent": "Guzzlord ex Naganadel",
+        "opponent_chinese": "恶食大王 EX + 四颚针龙",
+        "win_rate": 61.904761904761905,
+        "raw_score": "13 - 8 - 0",
+        "total_matches": 21
+      },
+      {
+        "opponent": "Decidueye ex Decidueye",
+        "opponent_chinese": "狙射树枭 EX + 狙射树枭",
+        "win_rate": 55.00000000000001,
+        "raw_score": "11 - 9 - 0",
+        "total_matches": 20
+      },
+      {
+        "opponent": "Guzzlord ex Celesteela",
+        "opponent_chinese": "恶食大王 EX + 铁火辉夜",
+        "win_rate": 55.00000000000001,
+        "raw_score": "11 - 9 - 0",
+        "total_matches": 20
+      },
+      {
+        "opponent": "Giratina ex Magnezone",
+        "opponent_chinese": "骑拉帝纳 EX + 自爆磁怪",
+        "win_rate": 52.94117647058824,
+        "raw_score": "9 - 8 - 0",
+        "total_matches": 17
+      },
+      {
+        "opponent": "Charizard ex Wigglytuff",
+        "opponent_chinese": "喷火龙 EX + 胖可丁",
+        "win_rate": 38.46153846153847,
+        "raw_score": "5 - 8 - 0",
+        "total_matches": 13
+      },
+      {
+        "opponent": "Arceus ex Crobat",
+        "opponent_chinese": "阿尔宙斯 EX + 叉字蝠",
+        "win_rate": 75.0,
+        "raw_score": "9 - 3 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Gengar ex Gengar",
+        "opponent_chinese": "耿鬼 EX + 耿鬼",
+        "win_rate": 58.333333333333336,
+        "raw_score": "7 - 5 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Tapu Koko ex Pikachu ex",
+        "opponent_chinese": "TapuKoko EX + 皮卡丘 EX",
+        "win_rate": 41.66666666666667,
+        "raw_score": "5 - 7 - 0",
+        "total_matches": 12
+      },
+      {
+        "opponent": "Meowscarada Decidueye ex",
+        "opponent_chinese": "魔幻假面喵 + 狙射树枭 EX",
+        "win_rate": 63.63636363636363,
+        "raw_score": "7 - 4 - 0",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Charizard ex",
+        "opponent_chinese": "喷火龙 EX",
+        "win_rate": 54.54545454545454,
+        "raw_score": "6 - 5 - 0",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Garchomp ex Rampardos",
+        "opponent_chinese": "烈咬陆鲨 EX + 战槌龙",
+        "win_rate": 54.54545454545454,
+        "raw_score": "6 - 4 - 1",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Giratina ex Greninja",
+        "opponent_chinese": "骑拉帝纳 EX + 甲贺忍蛙",
+        "win_rate": 45.45454545454545,
+        "raw_score": "5 - 6 - 0",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Giratina ex Stoutland",
+        "opponent_chinese": "骑拉帝纳 EX + 长毛狗",
+        "win_rate": 36.36363636363637,
+        "raw_score": "4 - 6 - 1",
+        "total_matches": 11
+      },
+      {
+        "opponent": "Solgaleo ex Skarmory",
+        "opponent_chinese": "索尔迦雷欧 EX + 盔甲鸟",
+        "win_rate": 50.0,
+        "raw_score": "5 - 5 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Charizard ex Turtonator",
+        "opponent_chinese": "喷火龙 EX + 爆焰龟兽",
+        "win_rate": 40.0,
+        "raw_score": "4 - 6 - 0",
+        "total_matches": 10
+      },
+      {
+        "opponent": "Silvally",
+        "opponent_chinese": "银伴战兽",
+        "win_rate": 88.88888888888889,
+        "raw_score": "8 - 1 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Lycanroc Rampardos",
+        "opponent_chinese": "鬃岩狼人 + 战槌龙",
+        "win_rate": 66.66666666666666,
+        "raw_score": "6 - 3 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Stoutland Rampardos",
+        "opponent_chinese": "长毛狗 + 战槌龙",
+        "win_rate": 66.66666666666666,
+        "raw_score": "6 - 3 - 0",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Decidueye ex Pheromosa",
+        "opponent_chinese": "狙射树枭 EX + 费洛美螂",
+        "win_rate": 55.55555555555556,
+        "raw_score": "5 - 3 - 1",
+        "total_matches": 9
+      },
+      {
+        "opponent": "Silvally Turtonator",
+        "opponent_chinese": "银伴战兽 + 爆焰龟兽",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Celebi ex Serperior",
+        "opponent_chinese": "时拉比 EX + 君主蛇",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Giratina ex Ultra Necrozma ex",
+        "opponent_chinese": "骑拉帝纳 EX + Ultra + 奈克洛兹玛 EX",
+        "win_rate": 62.5,
+        "raw_score": "5 - 3 - 0",
+        "total_matches": 8
+      },
+      {
+        "opponent": "Alakazam Stoutland",
+        "opponent_chinese": "胡地 + 长毛狗",
+        "win_rate": 71.42857142857143,
+        "raw_score": "5 - 2 - 0",
+        "total_matches": 7
+      },
+      {
+        "opponent": "Naganadel Guzzlord ex",
+        "opponent_chinese": "四颚针龙 + 恶食大王 EX",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Magnezone Tapu Koko ex",
+        "opponent_chinese": "自爆磁怪 + Tapu + Koko EX",
+        "win_rate": 50.0,
+        "raw_score": "3 - 3 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Gengar Giratina ex",
+        "opponent_chinese": "耿鬼 + 骑拉帝纳 EX",
+        "win_rate": 33.33333333333333,
+        "raw_score": "2 - 4 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Gengar Tapu Lele",
+        "opponent_chinese": "耿鬼 + Tapu + Lele",
+        "win_rate": 16.666666666666664,
+        "raw_score": "1 - 5 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Giratina ex Dragonite",
+        "opponent_chinese": "骑拉帝纳 EX + 快龙",
+        "win_rate": 0.0,
+        "raw_score": "0 - 6 - 0",
+        "total_matches": 6
+      },
+      {
+        "opponent": "Buzzwole ex Kartana",
+        "opponent_chinese": "爆肌蚊 EX + 纸御剑",
+        "win_rate": 100.0,
+        "raw_score": "5 - 0 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Magnezone Silvally",
+        "opponent_chinese": "自爆磁怪 + 银伴战兽",
+        "win_rate": 60.0,
+        "raw_score": "3 - 2 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Naganadel Darkrai ex",
+        "opponent_chinese": "四颚针龙 + 达克莱伊 EX",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Solgaleo ex Silvally",
+        "opponent_chinese": "索尔迦雷欧 EX + 银伴战兽",
+        "win_rate": 40.0,
+        "raw_score": "2 - 3 - 0",
+        "total_matches": 5
+      },
+      {
+        "opponent": "Darkrai ex Weezing",
+        "opponent_chinese": "达克莱伊 EX + 双弹瓦斯",
+        "win_rate": 20.0,
+        "raw_score": "1 - 4 - 0",
+        "total_matches": 5
+      }
+    ]
+  }
+}
