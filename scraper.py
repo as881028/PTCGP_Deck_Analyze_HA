@@ -63,12 +63,9 @@ CONFIG = {
 }
 
 # OpenAI API key – set environment variable OPENAI_API_KEY=<your key>
-# openai.api_key = os.getenv("OPENAI_API_KEY")
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-# openai 庫自 v1 起不再讀取全域變數，因此需在建立客戶端時傳入
-openai.api_key = openai_api_key
-
+# openai 庫自 v1 起不再讀取全域變數，因此僅記錄是否載入金鑰
 if openai_api_key:
     logging.info("已載入 OPENAI_API_KEY")
 else:
@@ -396,7 +393,7 @@ def ask_chatgpt(df, matrix, resolver, b_results):
     """Ask ChatGPT to analyze the data and provide a verdict"""
     try:
         # 檢查 API key
-        if not openai.api_key:
+        if not openai_api_key:
             logging.warning("未找到 OPENAI_API_KEY，請在環境變數或 config.json 設定 openai_api_key")
             return "[未設定 OPENAI_API_KEY，跳過 ChatGPT 推論]"
 
@@ -482,7 +479,7 @@ def ask_chatgpt(df, matrix, resolver, b_results):
         
         # 調用 GPT API
         try:
-            client = openai.OpenAI()
+            client = openai.OpenAI(api_key=openai_api_key)
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[
