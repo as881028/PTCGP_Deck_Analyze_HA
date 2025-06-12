@@ -44,17 +44,20 @@ CONFIG = {
 請僅使用 JSON 中資料依 system 演算法計算，禁止引用任何外部數字。
 請「僅使用下方 JSON 數據」依 system 指令計算，不得引用表外或模型記憶的資料。
 
-
-
 ### 對戰矩陣 (JSON) - 包含全部對局
 ```json
 {matchup_matrix}
 ```
 
+### B-Score 計算結果 (JSON)
+```json
+{b_score_results}
+```
+
 請依系統算法輸出三段結果：
-計算表
-判斷依據
-結論
+1. 計算表（包含 B-Score 結果）
+2. 判斷依據（參考 B-Score 結果）
+3. 結論（包含最有利牌組和有缺陷牌組）
 """
     }
 }
@@ -389,56 +392,112 @@ def load_prompt(filename: str) -> str:
         logging.error(f"Error loading prompt file {filename}: {e}")
         return ""
 
-def ask_chatgpt(deck_df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any]]], resolver: NameResolver) -> str:
-    """Send deck stats + matchup matrix to ChatGPT o3 and get the verdict."""
-    matrix_json = build_matrix_json(matrix, deck_df, resolver)
-
-    # Load system prompt from file
-    system_prompt = load_prompt(CONFIG['CHATGPT']['PROMPT_FILES']['SYSTEM'])
-
-    # Use template from config
-    user_prompt = CONFIG['CHATGPT']['USER_PROMPT_TEMPLATE'].format(
-        deck_count=len(deck_df),
-        matchup_matrix=matrix_json
-    )
-
-    # Write prompts to file for debugging
-    log_dir = CONFIG.get('PROMPT_LOG_DIR')
-    if log_dir:
-        os.makedirs(log_dir, exist_ok=True)
-        log_path = os.path.join(log_dir, f"prompt_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
-        try:
-            with open(log_path, 'w', encoding='utf-8') as f:
-                f.write("=== SYSTEM PROMPT ===\n")
-                f.write(system_prompt)
-                f.write("\n\n=== USER PROMPT ===\n")
-                f.write(user_prompt)
-        except Exception as e:
-            logging.error(f"Error writing prompt log: {e}")
-
-    if not openai.api_key:
-        logging.warning(
-            "未找到 OPENAI_API_KEY，請在環境變數或 config.json 設定 openai_api_key。跳過 ChatGPT 推論"
-        )
-        print("\n=== ChatGPT 推論輸入 (system) ===")
-        print(system_prompt)
-        print("\n=== ChatGPT 推論輸入 (user) ===")
-        print(user_prompt)
-        return "[未設定 OPENAI_API_KEY，跳過 ChatGPT 推論]"
-
+def ask_chatgpt(df, matrix, resolver, b_results):
+    """Ask ChatGPT to analyze the data and provide a verdict"""
     try:
-        client = openai.OpenAI(api_key=openai_api_key)
-        response = client.chat.completions.create(
-            model=CONFIG['CHATGPT']['MODEL'],
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ]
-        )
-        return response.choices[0].message.content.strip()
+        # 檢查 API key
+        if not openai.api_key:
+            logging.warning("未找到 OPENAI_API_KEY，請在環境變數或 config.json 設定 openai_api_key")
+            return "[未設定 OPENAI_API_KEY，跳過 ChatGPT 推論]"
+
+        # 準備要發送給 GPT 的數據
+        data = {
+            'top_decks': [],
+            'defective_decks': []
+        }
+        
+        # 處理每個牌組的數據
+        for item in b_results:
+            deck_name = item['deck']
+            deck_matrix = matrix.get(deck_name, {})
+            
+            # 計算總場次
+            total_matches = sum(matchup.get('games', 0) for matchup in deck_matrix.values())
+            
+            deck_data = {
+                'deck': deck_name,
+                'B-Score': item['B-Score'],
+                'total_matches': total_matches,
+                'advantages': [],
+                'disadvantages': []
+            }
+            
+            # 分析對戰數據
+            for opp_name, matchup in deck_matrix.items():
+                if not matchup:  # 跳過空數據
+                    continue
+                    
+                matchup_data = {
+                    'opponent': opp_name,
+                    'win_rate': round(matchup.get('win_rate', 0), 2),
+                    'games': matchup.get('games', 0)
+                }
+                
+                # 根據勝率和場次計算得分
+                win_rate = matchup_data['win_rate']
+                games = matchup_data['games']
+                
+                if win_rate >= 0.65 and games >= 20:
+                    matchup_data['points'] = 2
+                    deck_data['advantages'].append(matchup_data)
+                elif win_rate >= 0.60 and games >= 15:
+                    matchup_data['points'] = 1
+                    deck_data['advantages'].append(matchup_data)
+                elif win_rate <= 0.35 and games >= 20:
+                    matchup_data['points'] = -2
+                    deck_data['disadvantages'].append(matchup_data)
+                elif win_rate <= 0.40 and games >= 15:
+                    matchup_data['points'] = -1
+                    deck_data['disadvantages'].append(matchup_data)
+            
+            # 根據 B-Score 和樣本量決定是否為缺陷牌組
+            is_defective = (
+                item['B-Score'] < 45 or  # B-Score 過低
+                total_matches < 30 or  # 樣本量過少
+                len(deck_data['disadvantages']) > 0  # 有明顯劣勢對戰
+            )
+            
+            if is_defective:
+                data['defective_decks'].append(deck_data)
+            else:
+                data['top_decks'].append(deck_data)
+        
+        # 排序牌組
+        data['top_decks'].sort(key=lambda x: x['B-Score'], reverse=True)
+        data['defective_decks'].sort(key=lambda x: x['B-Score'])
+        
+        # 讀取 system prompt
+        try:
+            with open('system_prompt.txt', 'r', encoding='utf-8') as f:
+                system_prompt = f.read()
+        except Exception as e:
+            logging.error(f"讀取 system_prompt.txt 失敗: {e}")
+            return f"[讀取 system_prompt.txt 失敗: {e}]"
+        
+        # 準備發送給 GPT 的完整提示
+        prompt = f"{system_prompt}\n\n請分析以下數據：\n{json.dumps(data, ensure_ascii=False, indent=2)}"
+        
+        # 記錄提示內容
+        logging.debug(f"發送給 GPT 的提示：\n{prompt}")
+        
+        # 調用 GPT API
+        try:
+            client = openai.OpenAI()
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": json.dumps(data, ensure_ascii=False, indent=2)}
+                ]
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            logging.error(f"ChatGPT API 錯誤: {e}")
+            return f"[ChatGPT API 錯誤: {e}]"
+            
     except Exception as e:
-        logging.error(f"ChatGPT API error: {e}")
-        return f"[ChatGPT API 錯誤: {e}]"
+        logging.error(f"ask_chatgpt 函數錯誤: {e}")
+        return f"[ask_chatgpt 函數錯誤: {e}]"
 
 # ============================================================
 # Main entry
@@ -498,7 +557,12 @@ def main():
     for item in b_results:
         print(f"{item['deck']}: {item['B-Score']}%")
 
-    # 5) Save scraped data to JSON file
+    # 5) Get ChatGPT verdict
+    verdict = ask_chatgpt(df, matrix, resolver, b_results)
+    print("\n=== ChatGPT 推論 ===")
+    print(verdict)
+
+    # 6) Save scraped data to JSON file
     result = {
         'decks': df.to_dict('records'),
         'matrix': matrix,
