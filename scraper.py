@@ -6,6 +6,7 @@ import time
 import requests
 import pandas as pd
 import openai
+from b_score import calculate_b_score
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from typing import Dict, Any, List, Optional
@@ -336,6 +337,35 @@ def build_matrix_json(matrix: Dict[str, Dict[str, Dict[str, Any]]], df: pd.DataF
     return json.dumps(clean, ensure_ascii=False, indent=2)
 
 
+def build_b_score_data(matrix: Dict[str, Dict[str, Dict[str, Any]]], df: pd.DataFrame, resolver: NameResolver) -> List[Dict[str, Any]]:
+    """將對戰矩陣轉換為 B-Score 函式所需的資料格式。"""
+    name_map = {row['Deck Name']: row['Chinese Name'] for _, row in df.iterrows()}
+
+    result: List[Dict[str, Any]] = []
+    for deck, opps in matrix.items():
+        deck_cn = name_map.get(deck, resolver.get(deck))
+        opponents = []
+        total = 0
+        for o, v in opps.items():
+            if deck == o:
+                continue
+            opp_cn = name_map.get(o, resolver.get(o))
+            matches = v['matches']
+            opponents.append({
+                'name': opp_cn,
+                'games': matches,
+                'win_rate': v['win_rate'] / 100
+            })
+            total += matches
+        result.append({
+            'deck': deck_cn,
+            'total_matches': total,
+            'opponents': opponents
+        })
+
+    return result
+
+
 # ============================================================
 # Helper: DataFrame -> Markdown table
 # ============================================================
@@ -461,10 +491,12 @@ def main():
     print_matrix("對戰次數矩陣", lambda x: x['matches'])
     print_matrix("勝率矩陣", lambda x: f"{x['win_rate']:.1f}%")
 
-    # 4) Ask ChatGPT for verdict
-    verdict = ask_chatgpt(df, matrix, resolver)
-    print("\n=== ChatGPT o3-mini 推論結果 ===")
-    print(verdict)
+    # 4) Calculate B-Score
+    b_score_data = build_b_score_data(matrix, df, resolver)
+    b_results = calculate_b_score(b_score_data)
+    print("\n=== B-Score 結果 ===")
+    for item in b_results:
+        print(f"{item['deck']}: {item['B-Score']}%")
 
 
 if __name__ == '__main__':
