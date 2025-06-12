@@ -122,6 +122,7 @@ class NameResolver:
     def __init__(self, cache_path: str):
         self.cache_path = cache_path
         self.cache = self._load_cache()
+        self.skip_lookup = False  # 若無法查詢中文名則跳過後續查詢
 
     def _load_cache(self) -> Dict[str, str]:
         if os.path.exists(self.cache_path):
@@ -142,6 +143,8 @@ class NameResolver:
     def get(self, english_name: str) -> str:
         if english_name in self.cache:
             return self.cache[english_name]
+        if self.skip_lookup:
+            return english_name
         # 處理 Tapu 後接空白的寶可夢名稱
         english_name = re.sub(r'Tapu\s+(\w+)', r'Tapu\1', english_name)
         
@@ -163,6 +166,9 @@ class NameResolver:
         return zh_name
 
     def _query_wiki(self, name: str) -> str:
+        if self.skip_lookup:
+            return name
+
         url = f"http://wiki.52poke.com/wiki/{name}"
         try:
             res = requests.get(url, timeout=8)
@@ -172,7 +178,9 @@ class NameResolver:
             if h1:
                 return h1.text.strip()
         except Exception as e:
-            logging.debug(f"Wiki lookup failed for {name}: {e}")
+            logging.info(
+                f"Wiki lookup failed for {name}, skip further lookups: {e}")
+            self.skip_lookup = True
         # 若查詢失敗則直接回傳英文名稱
         return name
 
