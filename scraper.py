@@ -498,6 +498,19 @@ def main():
     for item in b_results:
         print(f"{item['deck']}: {item['B-Score']}%")
 
+    # 5) Save scraped data to JSON file
+    result = {
+        'decks': df.to_dict('records'),
+        'matrix': matrix,
+        'verdict': verdict,
+    }
+    try:
+        with open('result.json', 'w', encoding='utf-8') as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        logging.info('已將資料寫入 result.json')
+    except Exception as e:
+        logging.error(f'寫入 result.json 失敗: {e}')
+
 
 if __name__ == '__main__':
     main()
