@@ -377,6 +377,111 @@ def df_to_markdown(df: pd.DataFrame) -> str:
     return '\n'.join([header, divider] + rows)
 
 # ============================================================
+# Compute deck scores locally (no ChatGPT)
+# ============================================================
+
+def compute_scores(df: pd.DataFrame, matrix: Dict[str, Dict[str, Dict[str, Any]]], b_results: List[Dict[str, Any]]):
+    """Calculate detailed scores for each deck based on predefined rules."""
+
+    en_to_cn = {row['Deck Name']: row['Chinese Name'] for _, row in df.iterrows()}
+    cn_to_en = {v: k for k, v in en_to_cn.items()}
+
+    results: Dict[str, Any] = {
+        'top_decks': [],
+        'defective_decks': []
+    }
+
+    for item in b_results:
+        deck_cn = item['deck']
+        deck_en = cn_to_en.get(deck_cn, deck_cn)
+        deck_matrix = matrix.get(deck_en, {})
+
+        total_matches = sum(m.get('games', 0) for m in deck_matrix.values())
+
+        # Sample size score
+        if total_matches >= 80:
+            sample_score = 2
+        elif total_matches >= 50:
+            sample_score = 1
+        elif total_matches < 30:
+            sample_score = -1
+        else:
+            sample_score = 0
+
+        advantages: List[Dict[str, Any]] = []
+        disadvantages: List[Dict[str, Any]] = []
+        adv_score = 0
+
+        for opp_en, matchup in deck_matrix.items():
+            if not matchup:
+                continue
+            opp_cn = en_to_cn.get(opp_en, opp_en)
+            win_rate = round(matchup.get('win_rate', 0), 2)
+            games = matchup.get('matches', matchup.get('games', 0))
+
+            entry = {
+                'opponent': opp_cn,
+                'win_rate': win_rate,
+                'games': games
+            }
+
+            if win_rate >= 65 and games >= 20:
+                entry['points'] = 2
+                adv_score += 2
+                advantages.append(entry)
+            elif win_rate >= 60 and games >= 15:
+                entry['points'] = 1
+                adv_score += 1
+                advantages.append(entry)
+            elif win_rate <= 35 and games >= 20:
+                entry['points'] = -2
+                adv_score -= 2
+                disadvantages.append(entry)
+            elif win_rate <= 40 and games >= 15:
+                entry['points'] = -1
+                adv_score -= 1
+                disadvantages.append(entry)
+
+        b_score_val = item['B-Score']
+        if b_score_val >= 55:
+            b_score_score = 2
+        elif b_score_val >= 50:
+            b_score_score = 1
+        elif b_score_val <= 45:
+            b_score_score = -1
+        else:
+            b_score_score = 0
+
+        total_score = sample_score + adv_score + b_score_score
+
+        deck_data = {
+            'deck': deck_cn,
+            'B-Score': b_score_val,
+            'total_matches': total_matches,
+            'sample_score': sample_score,
+            'advantage_score': adv_score,
+            'b_score_score': b_score_score,
+            'total_score': total_score,
+            'advantages': advantages,
+            'disadvantages': disadvantages,
+        }
+
+        is_defective = (
+            b_score_val < 45 or
+            total_matches < 30 or
+            len(disadvantages) > 0
+        )
+
+        if is_defective:
+            results['defective_decks'].append(deck_data)
+        else:
+            results['top_decks'].append(deck_data)
+
+    results['top_decks'].sort(key=lambda x: x['total_score'], reverse=True)
+    results['defective_decks'].sort(key=lambda x: x['total_score'])
+    return results
+
+# ============================================================
 # Ask ChatGPT (o3) which deck is currently strongest
 # ============================================================
 
@@ -554,16 +659,35 @@ def main():
     for item in b_results:
         print(f"{item['deck']}: {item['B-Score']}%")
 
-    # 5) Get ChatGPT verdict
-    verdict = ask_chatgpt(df, matrix, resolver, b_results)
-    print("\n=== ChatGPT 推論 ===")
-    print(verdict)
+    # 5) Calculate deck scores locally
+    scores = compute_scores(df, matrix, b_results)
+    print("\n=== 計分結果 ===")
+    for deck in scores['top_decks']:
+        print(f"{deck['deck']} 總分:{deck['total_score']} (樣本量{deck['sample_score']}, "+
+              f"對戰優勢{deck['advantage_score']}, B-Score{deck['b_score_score']})")
+        if deck['advantages']:
+            print("  加分:")
+            for adv in deck['advantages']:
+                print(f"    +{adv['points']} {adv['opponent']} {adv['win_rate']:.1f}% ({adv['games']}場)")
+        if deck['disadvantages']:
+            print("  扣分:")
+            for dis in deck['disadvantages']:
+                print(f"    {dis['points']} {dis['opponent']} {dis['win_rate']:.1f}% ({dis['games']}場)")
+
+    if scores['defective_decks']:
+        print("\n=== 有缺陷牌組 ===")
+        for deck in scores['defective_decks']:
+            print(f"{deck['deck']} 總分:{deck['total_score']}")
+            if deck['disadvantages']:
+                print("  主要缺陷:")
+                for dis in deck['disadvantages']:
+                    print(f"    {dis['points']} {dis['opponent']} {dis['win_rate']:.1f}% ({dis['games']}場)")
 
     # 6) Save scraped data to JSON file
     result = {
         'decks': df.to_dict('records'),
         'matrix': matrix,
-        'verdict': verdict,
+        'scores': scores,
     }
     try:
         with open('result.json', 'w', encoding='utf-8') as f:
